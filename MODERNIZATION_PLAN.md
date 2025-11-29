@@ -173,12 +173,12 @@ Since we're committing at checkpoints:
 
 2. **Install and Configure Tailwind CSS**
 
-   - [ ] Install: `tailwindcss`, `postcss`, `autoprefixer`
-   - [ ] Create `tailwind.config.js`
-   - [ ] Update `postcss.config.js` to include Tailwind
-   - [ ] Create base Tailwind CSS file
-   - [ ] Test Tailwind works alongside existing CSS Modules
-   - [ ] Add Tailwind to build process
+   - [x] Install: `tailwindcss`, `postcss`, `autoprefixer`
+   - [x] Create `tailwind.config.js`
+   - [x] Update `postcss.config.js` to include Tailwind
+   - [x] Create base Tailwind CSS file
+   - [x] Test Tailwind works alongside existing CSS Modules
+   - [x] Add Tailwind to build process
 
 3. **Upgrade React Router v5 � v6**
 

@@ -1,3 +1,4 @@
+import '../common/styles/tailwind.css';
 import { loadableReady } from '@loadable/component';
 import renderApp from './renderApp';
 
