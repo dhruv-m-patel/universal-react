@@ -4190,6 +4190,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@noble/hashes@npm:^1.1.5":
+  version: 1.8.0
+  resolution: "@noble/hashes@npm:1.8.0"
+  checksum: c94e98b941963676feaba62475b1ccfa8341e3f572adbb3b684ee38b658df44100187fa0ef4220da580b13f8d27e87d5492623c8a02ecc61f23fb9960c7918f5
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -4243,6 +4250,15 @@ __metadata:
   dependencies:
     semver: ^7.3.5
   checksum: a50a6818de5fc557d0b0e6f50ec780a7a02ab8ad07e5ac8b16bf519e0ad60a144ac64f97d05c443c3367235d337182e1d012bbac0eb8dbae8dc7b40b193efd0e
+  languageName: node
+  linkType: hard
+
+"@paralleldrive/cuid2@npm:^2.2.2":
+  version: 2.3.1
+  resolution: "@paralleldrive/cuid2@npm:2.3.1"
+  dependencies:
+    "@noble/hashes": ^1.1.5
+  checksum: 1310abcdf8f50721725bf7394f89cb6e704308cdfb62da6a251d93c036d4c4ae45987ed10dcf58d0ccdd1e8fdf0b860351306f582457b5146154cb1e660bbd39
   languageName: node
   linkType: hard
 
@@ -6333,6 +6349,13 @@ __metadata:
   version: 1.0.1
   resolution: "arrify@npm:1.0.1"
   checksum: 745075dd4a4624ff0225c331dacb99be501a515d39bcb7c84d24660314a6ec28e68131b137e6f7e16318170842ce97538cd298fc4cd6b2cc798e0b957f2747e7
+  languageName: node
+  linkType: hard
+
+"asap@npm:^2.0.0":
+  version: 2.0.6
+  resolution: "asap@npm:2.0.6"
+  checksum: b296c92c4b969e973260e47523207cd5769abd27c245a68c26dc7a0fe8053c55bb04360237cb51cab1df52be939da77150ace99ad331fb7fb13b3423ed73ff3d
   languageName: node
   linkType: hard
 
@@ -8543,7 +8566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"component-emitter@npm:^1.2.1":
+"component-emitter@npm:^1.2.1, component-emitter@npm:^1.3.1":
   version: 1.3.1
   resolution: "component-emitter@npm:1.3.1"
   checksum: 94550aa462c7bd5a61c1bc480e28554aa306066930152d1b1844a0dd3845d4e5db7e261ddec62ae184913b3e59b55a2ad84093b9d3596a8f17c341514d6c483d
@@ -8710,6 +8733,13 @@ __metadata:
   version: 0.7.1
   resolution: "cookie@npm:0.7.1"
   checksum: cec5e425549b3650eb5c3498a9ba3cde0b9cd419e3b36e4b92739d30b4d89e0b678b98c1ddc209ce7cf958cd3215671fd6ac47aec21f10c2a0cc68abd399d8a7
+  languageName: node
+  linkType: hard
+
+"cookiejar@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "cookiejar@npm:2.1.4"
+  checksum: c4442111963077dc0e5672359956d6556a195d31cbb35b528356ce5f184922b99ac48245ac05ed86cf993f7df157c56da10ab3efdadfed79778a0d9b1b092d5b
   languageName: node
   linkType: hard
 
@@ -9502,7 +9532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.4.1":
+"debug@npm:^4.3.7, debug@npm:^4.4.1":
   version: 4.4.3
   resolution: "debug@npm:4.4.3"
   dependencies:
@@ -9768,6 +9798,16 @@ __metadata:
     detect: bin/detect-port.js
     detect-port: bin/detect-port.js
   checksum: b48da9340481742547263d5d985e65d078592557863402ecf538511735e83575867e94f91fe74405ea19b61351feb99efccae7e55de9a151d5654e3417cea05b
+  languageName: node
+  linkType: hard
+
+"dezalgo@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "dezalgo@npm:1.0.4"
+  dependencies:
+    asap: ^2.0.0
+    wrappy: 1
+  checksum: 895389c6aead740d2ab5da4d3466d20fa30f738010a4d3f4dcccc9fc645ca31c9d10b7e1804ae489b1eb02c7986f9f1f34ba132d409b043082a86d9a4e745624
   languageName: node
   linkType: hard
 
@@ -11489,6 +11529,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-safe-stringify@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "fast-safe-stringify@npm:2.1.1"
+  checksum: a851cbddc451745662f8f00ddb622d6766f9bd97642dabfd9a405fb0d646d69fc0b9a1243cbf67f5f18a39f40f6fa821737651ff1bceeba06c9992ca2dc5bd3d
+  languageName: node
+  linkType: hard
+
 "fastparse@npm:^1.1.2":
   version: 1.1.2
   resolution: "fastparse@npm:1.1.2"
@@ -11931,6 +11978,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"form-data@npm:^4.0.4":
+  version: 4.0.5
+  resolution: "form-data@npm:4.0.5"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    es-set-tostringtag: ^2.1.0
+    hasown: ^2.0.2
+    mime-types: ^2.1.12
+  checksum: af8328413c16d0cded5fccc975a44d227c5120fd46a9e81de8acf619d43ed838414cc6d7792195b30b248f76a65246949a129a4dadd148721948f90cd6d4fb69
+  languageName: node
+  linkType: hard
+
 "form-data@npm:~2.3.2":
   version: 2.3.3
   resolution: "form-data@npm:2.3.3"
@@ -11946,6 +12006,17 @@ __metadata:
   version: 0.2.2
   resolution: "format@npm:0.2.2"
   checksum: 646a60e1336250d802509cf24fb801e43bd4a70a07510c816fa133aa42cdbc9c21e66e9cc0801bb183c5b031c9d68be62e7fbb6877756e52357850f92aa28799
+  languageName: node
+  linkType: hard
+
+"formidable@npm:^3.5.4":
+  version: 3.5.4
+  resolution: "formidable@npm:3.5.4"
+  dependencies:
+    "@paralleldrive/cuid2": ^2.2.2
+    dezalgo: ^1.0.4
+    once: ^1.4.0
+  checksum: bdb8ecd8af16d40e7e4c06a9dbaf0394fe9cabb7a4cef6f68512ce6fe7933f5a9c588dfc5c1d92cbf83a9e4764f5216064d955669530d3d23ca816e93ea62989
   languageName: node
   linkType: hard
 
@@ -16317,7 +16388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"methods@npm:~1.1.2":
+"methods@npm:^1.1.2, methods@npm:~1.1.2":
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
   checksum: 0917ff4041fa8e2f2fda5425a955fe16ca411591fbd123c0d722fcf02b73971ed6f764d85f0a6f547ce49ee0221ce2c19a5fa692157931cecb422984f1dcd13a
@@ -16409,7 +16480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:^2.4.4":
+"mime@npm:2.6.0, mime@npm:^2.4.4":
   version: 2.6.0
   resolution: "mime@npm:2.6.0"
   bin:
@@ -22925,6 +22996,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"superagent@npm:^10.2.3":
+  version: 10.2.3
+  resolution: "superagent@npm:10.2.3"
+  dependencies:
+    component-emitter: ^1.3.1
+    cookiejar: ^2.1.4
+    debug: ^4.3.7
+    fast-safe-stringify: ^2.1.1
+    form-data: ^4.0.4
+    formidable: ^3.5.4
+    methods: ^1.1.2
+    mime: 2.6.0
+    qs: ^6.11.2
+  checksum: d59d0b125721ccf1be7f1b89bf91ee9b95edb4d6380072496a68384a7646cfbbbf15ca95b04f19f784b3856e7972bf49daf5a19ab91cf53e29557feb86990979
+  languageName: node
+  linkType: hard
+
+"supertest@npm:^7.1.4":
+  version: 7.1.4
+  resolution: "supertest@npm:7.1.4"
+  dependencies:
+    methods: ^1.1.2
+    superagent: ^10.2.3
+  checksum: 979f98d2b1c3c8e9a7c7b221b828121678c96ad06838e5e3601644e5521d988654eaf17f70ef010391a962215c61d25336320310185faf8ae5e503c7ba978a29
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:8.1.1, supports-color@npm:^8.0.0":
   version: 8.1.1
   resolution: "supports-color@npm:8.1.1"
@@ -24075,6 +24173,7 @@ __metadata:
     style-loader: ^1.3.0
     stylelint: ^11.1.1
     stylelint-config-recommended: ^3.0.0
+    supertest: ^7.1.4
     tailwindcss: ^3.4.0
     terser-webpack-plugin: ^2.3.8
     webpack: ^4.46.0
