@@ -15,7 +15,7 @@
     "migration:undo": "db-migrate --config migrations/db-migrate.json down",
     "build:server": "babel ./src --out-dir build",
     "build:client": "vite build",
-    "build:ssr": "vite build --ssr src/entry-server.js --outDir build/server",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir build/server",
     "build": "yarn build:client && yarn build:ssr && yarn build:server",
     "clean": "rimraf build && rimraf build-static",
     "start": "NODE_ENV=production node ./build/server/index.js",
@@ -55,8 +55,6 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@loadable/component": "^5.15.0",
-    "@loadable/server": "^5.15.0",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "classnames": "^2.3.1",
@@ -87,8 +85,7 @@
     "redux-api-middleware": "^3.2.1",
     "shortstop-handlers": "^1.0.1",
     "shortstop-regex": "0.0.1",
-    "store": "^2.0.12",
-    "webpack": "^4.46.0"
+    "store": "^2.0.12"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.0",
@@ -105,8 +102,6 @@
     "@babel/preset-react": "^7.26.0",
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.39.1",
-    "@loadable/babel-plugin": "^5.16.1",
-    "@loadable/webpack-plugin": "^5.15.0",
     "@storybook/addon-actions": "^5.3.21",
     "@storybook/addon-links": "^5.3.21",
     "@storybook/addons": "^5.3.21",
@@ -138,7 +133,6 @@
     "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "^0.8.2",
     "nodemon": "^1.19.4",
-    "optimize-css-assets-webpack-plugin": "^5.0.6",
     "postcss": "^8.4.0",
     "postcss-import": "^16.0.0",
     "postcss-loader": "^4.3.0",
@@ -153,12 +147,7 @@
     "stylelint-config-recommended": "^3.0.0",
     "supertest": "^7.1.4",
     "tailwindcss": "^3.4.0",
-    "terser-webpack-plugin": "^2.3.8",
-    "vite": "^5.4.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-middleware": "^3.7.3",
-    "webpack-hot-middleware": "^2.25.0",
-    "webpack-manifest-plugin": "^2.2.0"
+    "vite": "^5.4.0"
   },
   "lint-staged": {
     "**/*": [

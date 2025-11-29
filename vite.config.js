@@ -4,17 +4,19 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, ssrBuild }) => {
+export default defineConfig(({ mode, command, isSsrBuild }) => {
   const isProduction = mode === 'production';
   const isDevelopment = mode === 'development';
+  // Note: isSsrBuild is true when running `vite build --ssr`
+  const ssrBuild = isSsrBuild || false;
 
   return {
     plugins: [
       react({
-        // Enable Fast Refresh
-        fastRefresh: true,
         // Include JSX runtime for React 18
         jsxRuntime: 'automatic',
+        // Explicitly include .js files for JSX
+        include: '**/*.{jsx,js}',
       }),
       // Bundle analysis in production
       isProduction &&
@@ -51,7 +53,7 @@ export default defineConfig(({ mode, ssrBuild }) => {
       ssrManifest: !ssrBuild, // Generate SSR manifest for client build
       rollupOptions: {
         input: ssrBuild
-          ? path.resolve(__dirname, 'src/entry-server.js')
+          ? path.resolve(__dirname, 'src/entry-server.jsx')
           : path.resolve(__dirname, 'index.html'),
         output: {
           // Code splitting configuration

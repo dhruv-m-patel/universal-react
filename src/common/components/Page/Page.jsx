@@ -7,7 +7,7 @@ import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import Container from 'react-bootstrap/Container';
 import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
-import styles from './Page.css';
+import * as styles from './Page.css';
 
 const cx = classnames.bind(styles);
 

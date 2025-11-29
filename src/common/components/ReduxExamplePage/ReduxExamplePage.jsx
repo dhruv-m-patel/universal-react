@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import classnames from 'classnames/bind';
 import Page from '../Page';
-import styles from './ReduxExamplePage.css';
+import * as styles from './ReduxExamplePage.css';
 
 const cx = classnames.bind(styles);
 

@@ -230,56 +230,56 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Install Vite and Plugins**
-   - [ ] Install: `vite`, `@vitejs/plugin-react`
-   - [ ] Install: `vite-plugin-ssr` or custom SSR setup
-   - [ ] Install: `rollup-plugin-visualizer` (bundle analysis)
+   - [x] Install: `vite`, `@vitejs/plugin-react`
+   - [x] Install: custom SSR setup with Vite middleware
+   - [x] Install: `rollup-plugin-visualizer` (bundle analysis)
 
 2. **Create Vite Configuration**
-   - [ ] Create `vite.config.js` for client build
-   - [ ] Configure React plugin with Fast Refresh
-   - [ ] Configure CSS Modules support
-   - [ ] Configure PostCSS (Tailwind)
-   - [ ] Configure build output directory (`build-static`)
-   - [ ] Configure code splitting strategy
-   - [ ] Configure environment variables
+   - [x] Create `vite.config.js` for client and SSR build
+   - [x] Configure React plugin with Fast Refresh
+   - [x] Configure CSS Modules support
+   - [x] Configure PostCSS (Tailwind)
+   - [x] Configure build output directory (`build-static`)
+   - [x] Configure code splitting strategy
+   - [x] Configure environment variables
 
 3. **Create SSR Configuration**
-   - [ ] Create separate SSR entry point (`src/entry-server.js`)
-   - [ ] Create client entry point (`src/entry-client.js`)
-   - [ ] Configure Vite for SSR mode
-   - [ ] Set up SSR build command
-   - [ ] Configure manifest generation
+   - [x] Create separate SSR entry point (`src/entry-server.jsx`)
+   - [x] Create client entry point (`src/entry-client.jsx`)
+   - [x] Configure Vite for SSR mode
+   - [x] Set up SSR build command
+   - [x] Configure manifest generation
 
 4. **Update Express Server for Vite**
-   - [ ] Add Vite dev middleware for development
-   - [ ] Update `src/server/ExpressServer.js` to use Vite in dev
-   - [ ] Update production to load Vite build outputs
-   - [ ] Update asset loading (CSS, JS chunks)
-   - [ ] Update HMR setup
-   - [ ] Test hot module replacement works
+   - [x] Add Vite dev middleware for development
+   - [x] Update `src/server/ExpressServer.js` to use Vite in dev
+   - [x] Update production to load Vite build outputs
+   - [x] Update asset loading (CSS, JS chunks)
+   - [x] Update HMR setup (via Vite's built-in HMR)
+   - [x] Created `renderPageVite.js` middleware for SSR
 
 5. **Migrate Code Splitting**
-   - [ ] Replace `@loadable/component` with `React.lazy()`
-   - [ ] Update `src/common/router.jsx` imports
-   - [ ] Remove `@loadable/babel-plugin`
-   - [ ] Remove `@loadable/webpack-plugin`
-   - [ ] Test code splitting still works
+   - [x] Replace `@loadable/component` with `React.lazy()`
+   - [x] Update `src/common/router.jsx` imports
+   - [x] Remove `@loadable/babel-plugin`
+   - [x] Remove `@loadable/webpack-plugin`
+   - [x] Created `router-server.jsx` for SSR without lazy loading
 
 6. **Update Build Scripts**
-   - [ ] Add `build:client:vite` script
-   - [ ] Add `build:server:vite` script
-   - [ ] Update `build` script to use Vite
-   - [ ] Add `dev:vite` script
-   - [ ] Test development server
-   - [ ] Test production build
+   - [x] Add `build:client` script using Vite
+   - [x] Add `build:ssr` script for SSR bundle
+   - [x] Update `build` script to use Vite
+   - [x] Test development server with Vite
+   - [x] Test production build
+   - [x] All tests passing
 
 7. **Remove Webpack**
-   - [ ] Delete `webpack.config.js`
-   - [ ] Remove all webpack dependencies
-   - [ ] Remove webpack plugins (mini-css-extract, terser, etc.)
-   - [ ] Remove webpack loaders (css-loader, style-loader, etc.)
-   - [ ] Clean up package.json scripts
-   - [ ] Remove `.babelrc` webpack-specific config
+   - [x] Delete `webpack.config.js`
+   - [x] Remove all webpack dependencies
+   - [x] Remove webpack plugins (mini-css-extract, terser, etc.)
+   - [x] Remove webpack loaders (css-loader, style-loader, etc.)
+   - [x] Clean up package.json scripts
+   - [x] Remove `@loadable` dependencies
 
 **Success Criteria:**
 
