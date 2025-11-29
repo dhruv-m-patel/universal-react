@@ -80,7 +80,7 @@ export default class ExpressServer {
       this.app.use(meddleware(middleware));
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _reject) => {
       const port = ['staging', 'production'].includes(process.env.NODE_ENV)
         ? process.env.PORT
         : config.get('port');

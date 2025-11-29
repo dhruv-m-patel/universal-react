@@ -165,14 +165,12 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Update Node.js to v22 LTS**
-
    - [x] Update `.nvmrc` file to `22`
    - [x] Update `package.json` engines: `"node": ">= 22"`
    - [x] Test existing app runs on Node 22
-   - [ ] Update CI/CD workflows to use Node 22
+   - [x] Update CI/CD workflows to use Node 22 (uses .nvmrc automatically)
 
 2. **Install and Configure Tailwind CSS**
-
    - [x] Install: `tailwindcss`, `postcss`, `autoprefixer`
    - [x] Create `tailwind.config.js`
    - [x] Update `postcss.config.js` to include Tailwind
@@ -181,7 +179,6 @@ Since we're committing at checkpoints:
    - [x] Add Tailwind to build process
 
 3. **Upgrade React Router v5 � v6**
-
    - [x] Install `react-router-dom@6`
    - [x] Update route definitions (`<Switch>` � `<Routes>`, `<Route>` API changes)
    - [x] Update navigation hooks (`useHistory()` � `useNavigate()`)
@@ -190,7 +187,6 @@ Since we're committing at checkpoints:
    - [x] Update server-side routing if needed
 
 4. **Upgrade Database Clients**
-
    - [x] Replace `mysql` with `mysql2` (drop-in replacement)
    - [x] Update `pg` to latest version
    - [x] Update `src/lib/clients/mysql.js` to use mysql2
@@ -199,13 +195,17 @@ Since we're committing at checkpoints:
    - [x] Verify `executeQuery` functions work correctly
 
 5. **Update Core Dependencies**
-   - [ ] Update React to `18.3.x` (latest in v18)
-   - [ ] Update React DOM to `18.3.x`
-   - [ ] Update Express to `4.x` (latest)
-   - [ ] Update all Babel packages to latest v7
-   - [ ] Update ESLint to v9.x
-   - [ ] Update Prettier to latest
-   - [ ] Run `yarn install` and verify no conflicts
+   - [x] Update React to `18.3.x` (latest in v18)
+   - [x] Update React DOM to `18.3.x`
+   - [x] Update Express to `4.x` (latest)
+   - [x] Update all Babel packages to latest v7
+   - [x] Update ESLint to v9.x
+   - [x] Update Prettier to latest
+   - [x] Run `yarn install` and verify no conflicts
+   - [x] Migrate ESLint config to flat config format
+   - [x] Install @babel/eslint-parser (replaces deprecated babel-eslint)
+   - [x] Fix linting errors
+   - [x] Verify all tests pass
 
 **Success Criteria:**
 
@@ -230,13 +230,11 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Install Vite and Plugins**
-
    - [ ] Install: `vite`, `@vitejs/plugin-react`
    - [ ] Install: `vite-plugin-ssr` or custom SSR setup
    - [ ] Install: `rollup-plugin-visualizer` (bundle analysis)
 
 2. **Create Vite Configuration**
-
    - [ ] Create `vite.config.js` for client build
    - [ ] Configure React plugin with Fast Refresh
    - [ ] Configure CSS Modules support
@@ -246,7 +244,6 @@ Since we're committing at checkpoints:
    - [ ] Configure environment variables
 
 3. **Create SSR Configuration**
-
    - [ ] Create separate SSR entry point (`src/entry-server.js`)
    - [ ] Create client entry point (`src/entry-client.js`)
    - [ ] Configure Vite for SSR mode
@@ -254,7 +251,6 @@ Since we're committing at checkpoints:
    - [ ] Configure manifest generation
 
 4. **Update Express Server for Vite**
-
    - [ ] Add Vite dev middleware for development
    - [ ] Update `src/server/ExpressServer.js` to use Vite in dev
    - [ ] Update production to load Vite build outputs
@@ -263,7 +259,6 @@ Since we're committing at checkpoints:
    - [ ] Test hot module replacement works
 
 5. **Migrate Code Splitting**
-
    - [ ] Replace `@loadable/component` with `React.lazy()`
    - [ ] Update `src/common/router.jsx` imports
    - [ ] Remove `@loadable/babel-plugin`
@@ -271,7 +266,6 @@ Since we're committing at checkpoints:
    - [ ] Test code splitting still works
 
 6. **Update Build Scripts**
-
    - [ ] Add `build:client:vite` script
    - [ ] Add `build:server:vite` script
    - [ ] Update `build` script to use Vite
@@ -313,7 +307,6 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Install Vitest and Testing Library**
-
    - [ ] Install: `vitest`, `@vitest/ui`
    - [ ] Install: `@testing-library/react`
    - [ ] Install: `@testing-library/jest-dom`
@@ -321,7 +314,6 @@ Since we're committing at checkpoints:
    - [ ] Install: `jsdom` (already have, verify version)
 
 2. **Create Vitest Configuration**
-
    - [ ] Create `vitest.config.js`
    - [ ] Configure jsdom environment
    - [ ] Configure test file patterns
@@ -331,14 +323,12 @@ Since we're committing at checkpoints:
    - [ ] Configure aliases (match Vite config)
 
 3. **Create Test Setup Files**
-
    - [ ] Create `src/setupTests.js` for Vitest
    - [ ] Configure @testing-library/jest-dom
    - [ ] Add custom matchers if needed
    - [ ] Configure global test utilities
 
 4. **Migrate Existing Tests**
-
    - [ ] Update `DefaultHelmet.test.js` (migrate from Enzyme)
    - [ ] Update `HomePage.test.js` (migrate from Enzyme)
    - [ ] Update `NotFound.test.js` (migrate from Enzyme)
@@ -349,7 +339,6 @@ Since we're committing at checkpoints:
    - [ ] Update snapshot tests if needed
 
 5. **Update Test Scripts**
-
    - [ ] Update `test` script to use Vitest
    - [ ] Update `ci:test` script
    - [ ] Remove `pretest` (Jest cache clear)
@@ -386,7 +375,6 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Install Radix UI Primitives**
-
    - [ ] Install: `@radix-ui/react-dialog`
    - [ ] Install: `@radix-ui/react-dropdown-menu`
    - [ ] Install: `@radix-ui/react-select`
@@ -397,7 +385,6 @@ Since we're committing at checkpoints:
    - [ ] Install other primitives as needed
 
 2. **Create Base Component Library**
-
    - [ ] Create `src/common/components/ui/Button.jsx` (Radix + Tailwind)
    - [ ] Create `src/common/components/ui/Card.jsx`
    - [ ] Create `src/common/components/ui/Input.jsx`
@@ -409,7 +396,6 @@ Since we're committing at checkpoints:
    - [ ] Create component exports in `src/common/components/ui/index.js`
 
 3. **Migrate Existing Components**
-
    - [ ] Audit HomePage for react-bootstrap usage
    - [ ] Migrate HomePage to Radix UI + Tailwind
    - [ ] Test HomePage renders correctly
@@ -421,7 +407,6 @@ Since we're committing at checkpoints:
    - [ ] Update Page component if needed
 
 4. **Update Tests**
-
    - [ ] Update HomePage tests for new components
    - [ ] Update ReduxExamplePage tests
    - [ ] Update NotFound tests
@@ -457,7 +442,6 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Setup Redux Actions/Reducers for jsonplaceholder**
-
    - [ ] Create `src/client/redux/actions/posts.js`
    - [ ] Create `src/client/redux/actions/users.js`
    - [ ] Create `src/client/redux/actions/comments.js`
@@ -467,7 +451,6 @@ Since we're committing at checkpoints:
    - [ ] Add to root reducer
 
 2. **Create API Service Layer**
-
    - [ ] Create `src/lib/api/jsonplaceholder.js`
    - [ ] Add `fetchPosts()` function
    - [ ] Add `fetchPost(id)` function
@@ -477,7 +460,6 @@ Since we're committing at checkpoints:
    - [ ] Use with redux-api-middleware
 
 3. **Build Posts List Page**
-
    - [ ] Create `src/common/components/PostsPage/PostsPage.jsx`
    - [ ] Implement posts fetching with Redux
    - [ ] Add pagination UI (Radix UI + Tailwind)
@@ -488,7 +470,6 @@ Since we're committing at checkpoints:
    - [ ] Add route to router
 
 4. **Build Post Detail Page**
-
    - [ ] Create `src/common/components/PostDetailPage/PostDetailPage.jsx`
    - [ ] Fetch single post with Redux
    - [ ] Fetch comments with Redux
@@ -500,7 +481,6 @@ Since we're committing at checkpoints:
    - [ ] Add route with dynamic param
 
 5. **Build Users Directory Page**
-
    - [ ] Create `src/common/components/UsersPage/UsersPage.jsx`
    - [ ] Fetch users list with Redux
    - [ ] Implement `useTransition` for search/filter
@@ -511,7 +491,6 @@ Since we're committing at checkpoints:
    - [ ] Add route
 
 6. **Build User Profile Page**
-
    - [ ] Create `src/common/components/UserProfilePage/UserProfilePage.jsx`
    - [ ] Fetch user details with Redux
    - [ ] Fetch user posts with Redux
@@ -524,7 +503,6 @@ Since we're committing at checkpoints:
    - [ ] Add route with dynamic param
 
 7. **Implement Streaming SSR**
-
    - [ ] Update `src/server/middleware/renderPage.js`
    - [ ] Replace `renderToString` with `renderToPipeableStream`
    - [ ] Implement shell-ready callback
@@ -566,7 +544,6 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Upgrade Storybook**
-
    - [ ] Run `npx storybook@latest upgrade`
    - [ ] Review breaking changes
    - [ ] Install `@storybook/react-vite`
@@ -575,7 +552,6 @@ Since we're committing at checkpoints:
    - [ ] Install `@storybook/addon-a11y`
 
 2. **Configure Storybook with Vite**
-
    - [ ] Create `.storybook/main.js` for Vite
    - [ ] Configure Vite builder
    - [ ] Configure addons
@@ -583,7 +559,6 @@ Since we're committing at checkpoints:
    - [ ] Set up TypeScript support (for stories metadata)
 
 3. **Create Storybook Preview Config**
-
    - [ ] Create `.storybook/preview.js`
    - [ ] Import Tailwind CSS
    - [ ] Configure global decorators
@@ -591,13 +566,11 @@ Since we're committing at checkpoints:
    - [ ] Configure React Router decorator if needed
 
 4. **Update Existing Stories**
-
    - [ ] Update `DefaultHelmet.stories.js` to v8 CSF format
    - [ ] Remove storybook-react-router (use built-in)
    - [ ] Test existing stories work
 
 5. **Create Stories for New Components**
-
    - [ ] Create story for Button component
    - [ ] Create story for Card component
    - [ ] Create story for Input component
@@ -608,7 +581,6 @@ Since we're committing at checkpoints:
    - [ ] Add accessibility tests
 
 6. **Update Scripts**
-
    - [ ] Update `storybook` script
    - [ ] Update `build-storybook` script
    - [ ] Test Storybook dev server
@@ -643,7 +615,6 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Update README.md**
-
    - [ ] Update tech stack section (Vite, Vitest, Radix UI, Tailwind, etc.)
    - [ ] Update quick start commands
    - [ ] Update build commands (Vite instead of Webpack)
@@ -655,7 +626,6 @@ Since we're committing at checkpoints:
    - [ ] Add Radix UI component usage
 
 2. **Update CLAUDE.md**
-
    - [ ] Update Development Commands section
    - [ ] Update Architecture section (Vite instead of Webpack)
    - [ ] Add Vite configuration details
@@ -667,7 +637,6 @@ Since we're committing at checkpoints:
    - [ ] Add troubleshooting section
 
 3. **Create MIGRATION.md**
-
    - [ ] Document all breaking changes
    - [ ] Document React Router v5 � v6 migration
    - [ ] Document Webpack � Vite migration
@@ -678,7 +647,6 @@ Since we're committing at checkpoints:
    - [ ] Add troubleshooting guide
 
 4. **Code Quality Check**
-
    - [ ] Run `yarn lint` and fix all issues
    - [ ] Run `yarn prettier:format` on all files
    - [ ] Review all TODO comments in code
@@ -688,7 +656,6 @@ Since we're committing at checkpoints:
    - [ ] Verify all imports are used
 
 5. **Testing Verification**
-
    - [ ] Run `yarn test` - ensure 100% pass
    - [ ] Check test coverage reports
    - [ ] Add missing tests if needed
@@ -696,7 +663,6 @@ Since we're committing at checkpoints:
    - [ ] Test all pages manually in browser
 
 6. **Build Verification**
-
    - [ ] Run `yarn build` successfully
    - [ ] Check build output size
    - [ ] Verify code splitting worked
@@ -705,7 +671,6 @@ Since we're committing at checkpoints:
    - [ ] Test SSR in production mode
 
 7. **Final SSR Verification**
-
    - [ ] Test all pages render on server
    - [ ] Verify hydration works without errors
    - [ ] Check for hydration mismatches
@@ -715,7 +680,6 @@ Since we're committing at checkpoints:
    - [ ] Verify page load performance
 
 8. **Database Integration Test**
-
    - [ ] Test MySQL connection (if configured)
    - [ ] Test PostgreSQL connection (if configured)
    - [ ] Verify executeQuery works
@@ -753,13 +717,11 @@ Since we're committing at checkpoints:
 ### High Risk Items
 
 1. **Vite SSR Migration**
-
    - **Risk:** SSR might break during Webpack � Vite migration
    - **Mitigation:** Keep Webpack config until Vite proven; test extensively before removing
    - **Rollback:** Revert to Webpack if critical issues
 
 2. **React Router v5 � v6**
-
    - **Risk:** Breaking API changes might affect routing
    - **Mitigation:** Update one route at a time; maintain thorough tests
    - **Rollback:** Can pin to react-router-dom v5 if needed
@@ -772,7 +734,6 @@ Since we're committing at checkpoints:
 ### Medium Risk Items
 
 1. **Streaming SSR**
-
    - **Risk:** Might cause hydration issues or performance problems
    - **Mitigation:** Keep traditional renderToString as fallback; feature flag
    - **Rollback:** Use renderToString instead of renderToPipeableStream
