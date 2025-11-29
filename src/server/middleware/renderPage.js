@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import path from 'path';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import { ChunkExtractor } from '@loadable/server';
 import createStore from '../../client/store';
 import { DEFAULT_STATE } from '../../client/redux/reducers';
