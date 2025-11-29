@@ -8,18 +8,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 1. **Always run `nvm use` first** - Before starting any work in this repo, whether in the current terminal or in a background shell, always run `nvm use` to ensure the correct Node.js version is active.
 
-2. **Run lint before committing** - Before committing any work, always run `yarn lint` to ensure code meets style guidelines.
+2. If making code changes, `yarn build` must pass.
 
-3. **Run tests before pushing** - Before pushing commits to the remote repository, always run `yarn test`. If there are test failures, fix them. Never push failing tests.
+3. **Run lint before committing** - Before committing any work, always run `yarn lint` to ensure code meets style guidelines.
 
-4. **100% pass rate for plan-driven changes** - When working on plan-driven changes (multi-step implementations), before committing:
+4. **Run tests before pushing** - Before pushing commits to the remote repository, always run `yarn test`. If there are test failures, fix them. Never push failing tests.
 
+5. **100% pass rate for plan-driven changes** - When working on plan-driven changes (multi-step implementations), before committing:
    - Run `yarn lint` - must pass 100%
    - Run `yarn test` - must pass 100%
    - Lesser coverage or failing tests is NOT acceptable
    - Everything must pass before the commit is made
 
-5. **Always use conventional commits** - All commits must follow the Conventional Commits specification (see below for details)
+6. **Always use conventional commits** - All commits must follow the Conventional Commits specification (see below for details)
 
 ## Project Overview
 
