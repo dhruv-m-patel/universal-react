@@ -4,8 +4,8 @@
   "description": "A universal react app boilerplate with SSR and database support",
   "main": "build/server/index.js",
   "engines": {
-    "node": ">= 18",
-    "npm": ">= 9"
+    "node": ">= 22",
+    "npm": ">= 10"
   },
   "scripts": {
     "migration:create": "db-migrate --config migrations/db-migrate.json create",

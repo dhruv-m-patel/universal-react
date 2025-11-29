@@ -166,9 +166,9 @@ Since we're committing at checkpoints:
 
 1. **Update Node.js to v22 LTS**
 
-   - [ ] Update `.nvmrc` file to `22`
-   - [ ] Update `package.json` engines: `"node": ">= 22"`
-   - [ ] Test existing app runs on Node 22
+   - [x] Update `.nvmrc` file to `22`
+   - [x] Update `package.json` engines: `"node": ">= 22"`
+   - [x] Test existing app runs on Node 22
    - [ ] Update CI/CD workflows to use Node 22
 
 2. **Install and Configure Tailwind CSS**
