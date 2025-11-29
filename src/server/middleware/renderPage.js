@@ -30,12 +30,6 @@ export default function () {
       publicPath: '/',
     });
 
-    const context = {};
-    if (context.url) {
-      res.redirect(context.url);
-      return;
-    }
-
     const store = createStore(req.initialState || DEFAULT_STATE);
     const preloadedState = req.initialState || store.getState();
     if (!req.initialState) {
@@ -43,7 +37,7 @@ export default function () {
     }
 
     const application = extractor.collectChunks(
-      <StaticRouter location={req.url} context={context}>
+      <StaticRouter location={req.url}>
         <Provider store={store}>
           <Router />
         </Provider>

@@ -182,12 +182,12 @@ Since we're committing at checkpoints:
 
 3. **Upgrade React Router v5 � v6**
 
-   - [ ] Install `react-router-dom@6`
-   - [ ] Update route definitions (`<Switch>` � `<Routes>`, `<Route>` API changes)
-   - [ ] Update navigation hooks (`useHistory()` � `useNavigate()`)
-   - [ ] Update `<Redirect>` to `<Navigate>`
-   - [ ] Test all routes work correctly
-   - [ ] Update server-side routing if needed
+   - [x] Install `react-router-dom@6`
+   - [x] Update route definitions (`<Switch>` � `<Routes>`, `<Route>` API changes)
+   - [x] Update navigation hooks (`useHistory()` � `useNavigate()`)
+   - [x] Update `<Redirect>` to `<Navigate>`
+   - [x] Test all routes work correctly
+   - [x] Update server-side routing if needed
 
 4. **Upgrade Database Clients**
 
