@@ -9,4 +9,5 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'jsx', 'json'],
   moduleDirectories: ['node_modules'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };
