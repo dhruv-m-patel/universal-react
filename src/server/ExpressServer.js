@@ -62,43 +62,31 @@ export default class ExpressServer {
       next();
     });
 
+    // In development, disable all caching for HMR
+    if (process.env.NODE_ENV === 'development') {
+      this.app.use((req, res, next) => {
+        res.setHeader(
+          'Cache-Control',
+          'no-store, no-cache, must-revalidate, proxy-revalidate'
+        );
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+        next();
+      });
+    }
+
     // NOTE: configure using Vite dev middleware earlier than other middlewares
     // for hot module replacement to work. Changing order may not guarantee live browser refresh.
     if (process.env.NODE_ENV === 'development') {
       const { createServer: createViteServer } = require('vite');
-      const net = require('net');
-
-      // Find an available port before creating Vite server
-      const basePort = config.get('port') || 3000;
-      const availablePort = await new Promise((resolve) => {
-        const server = net.createServer();
-        server.listen(basePort, () => {
-          const { port } = server.address();
-          server.close(() => resolve(port));
-        });
-        server.on('error', () => {
-          // Port in use, try next one
-          const tryNext = (p) => {
-            const s = net.createServer();
-            s.listen(p, () => {
-              const { port } = s.address();
-              s.close(() => resolve(port));
-            });
-            s.on('error', () => tryNext(p + 1));
-          };
-          tryNext(basePort + 1);
-        });
-      });
-
-      // Store the available port for later use
-      this.actualPort = availablePort;
 
       const vite = await createViteServer({
         server: {
           middlewareMode: true,
           hmr: {
-            // Use the available port for HMR WebSocket
-            port: availablePort,
+            // HMR will use the same port as the Express server
+            // We'll let the server auto-detect the port below
+            server: this.server,
           },
         },
         appType: 'custom',
@@ -116,21 +104,30 @@ export default class ExpressServer {
     }
 
     return new Promise((resolve, reject) => {
-      // Use the port we already found (in dev mode) or the configured port
-      const port =
-        this.actualPort ||
-        (['staging', 'production'].includes(process.env.NODE_ENV)
-          ? process.env.PORT
-          : config.get('port'));
+      const basePort = ['staging', 'production'].includes(process.env.NODE_ENV)
+        ? process.env.PORT
+        : config.get('port');
 
-      this.server.listen(port, () => {
-        console.log(`✓ Server listening on http://localhost:${port}`);
-        resolve(config);
-      });
+      const tryPort = (port) => {
+        // Remove any existing error listeners
+        this.server.removeAllListeners('error');
 
-      this.server.once('error', (err) => {
-        reject(err);
-      });
+        this.server.once('error', (err) => {
+          if (err.code === 'EADDRINUSE') {
+            console.log(`Port ${port} is in use, trying ${port + 1}...`);
+            tryPort(port + 1);
+          } else {
+            reject(err);
+          }
+        });
+
+        this.server.listen(port, () => {
+          console.log(`✓ Server listening on http://localhost:${port}`);
+          resolve(config);
+        });
+      };
+
+      tryPort(basePort);
     });
   }
 
