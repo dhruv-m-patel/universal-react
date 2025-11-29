@@ -30,5 +30,13 @@ render();
 
 // Hot Module Replacement (HMR) for development
 if (import.meta.hot) {
+  // Accept updates to this module
   import.meta.hot.accept();
+
+  // Accept updates to the router module and re-render
+  import.meta.hot.accept('./common/router', (newRouter) => {
+    if (newRouter) {
+      render();
+    }
+  });
 }

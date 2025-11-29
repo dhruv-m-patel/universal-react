@@ -77,14 +77,12 @@ export default defineConfig(({ mode, command, isSsrBuild }) => {
     },
 
     // Server configuration for development
+    // Note: In middleware mode, most server options are ignored
+    // HMR is configured in ExpressServer.js when creating the Vite server
     server: {
-      port: 3000,
-      strictPort: false,
       hmr: {
         overlay: true,
       },
-      // Don't open browser automatically (Express will handle this)
-      open: false,
     },
 
     // Optimize deps

@@ -9,7 +9,7 @@ export default function HomePage() {
     <Page>
       <Row>
         <Col sm={{ offset: 1, span: 10 }} md={{ offset: 4, span: 4 }}>
-          <h5>This starter-kit was built with:</h5>
+          <h5>This app was built with:</h5>
           <ul>
             <li>React v18</li>
             <li>Redux</li>

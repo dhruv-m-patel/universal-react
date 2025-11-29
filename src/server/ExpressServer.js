@@ -68,7 +68,13 @@ export default class ExpressServer {
       const { createServer: createViteServer } = require('vite');
 
       const vite = await createViteServer({
-        server: { middlewareMode: true },
+        server: {
+          middlewareMode: true,
+          hmr: {
+            // Use the same port as Express server for HMR WebSocket
+            port: config.get('port') || 3000,
+          },
+        },
         appType: 'custom',
       });
 
