@@ -62,17 +62,20 @@ export default class ExpressServer {
       next();
     });
 
-    // NOTE: configure using webpack-dev-middleware and webpack-hot-middleware earlier than other middlewares
-    // for hot- reloading to work. Changing order may not guarantee live browser refresh.
+    // NOTE: configure using Vite dev middleware earlier than other middlewares
+    // for hot module replacement to work. Changing order may not guarantee live browser refresh.
     if (process.env.NODE_ENV === 'development') {
-      const webpack = require('webpack');
-      const compiler = webpack(require('../../webpack.config.js'));
-      this.app.use(
-        require('webpack-dev-middleware')(compiler, {
-          stats: { colors: true },
-        })
-      );
-      this.app.use(require('webpack-hot-middleware')(compiler));
+      const { createServer: createViteServer } = require('vite');
+
+      const vite = await createViteServer({
+        server: { middlewareMode: true },
+        appType: 'custom',
+      });
+
+      // Store vite instance for SSR
+      this.app.locals.vite = vite;
+      // Use vite's connect instance as middleware
+      this.app.use(vite.middlewares);
     }
 
     const middleware = config.get('meddleware');

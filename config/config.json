@@ -73,7 +73,7 @@
     "renderPage": {
       "priority": 100,
       "module": {
-        "name": "sourcepath:./server/middleware/renderPage",
+        "name": "sourcepath:./server/middleware/renderPageVite",
         "method": "default"
       }
     }
