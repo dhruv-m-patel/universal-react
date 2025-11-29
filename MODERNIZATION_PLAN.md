@@ -191,12 +191,12 @@ Since we're committing at checkpoints:
 
 4. **Upgrade Database Clients**
 
-   - [ ] Replace `mysql` with `mysql2` (drop-in replacement)
-   - [ ] Update `pg` to latest version
-   - [ ] Update `src/lib/clients/mysql.js` to use mysql2
-   - [ ] Update `src/lib/clients/postgres.js` if needed
-   - [ ] Test database connections work
-   - [ ] Verify `executeQuery` functions work correctly
+   - [x] Replace `mysql` with `mysql2` (drop-in replacement)
+   - [x] Update `pg` to latest version
+   - [x] Update `src/lib/clients/mysql.js` to use mysql2
+   - [x] Update `src/lib/clients/postgres.js` if needed
+   - [x] Test database connections work
+   - [x] Verify `executeQuery` functions work correctly
 
 5. **Update Core Dependencies**
    - [ ] Update React to `18.3.x` (latest in v18)

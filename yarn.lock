@@ -4537,6 +4537,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"aws-ssl-profiles@npm:^1.1.1":
+  version: 1.1.2
+  resolution: "aws-ssl-profiles@npm:1.1.2"
+  checksum: bfcf9b2cbb9788e24e4af39a1e8b4a8afbdf65773b6a1636e643c10068ffbae46b28277c4c9f9321179400b2080092db040ba4513f9143f22d1bb053a12dab2b
+  languageName: node
+  linkType: hard
+
 "aws4@npm:^1.8.0":
   version: 1.12.0
   resolution: "aws4@npm:1.12.0"
@@ -5179,13 +5186,6 @@ __metadata:
   version: 5.2.2
   resolution: "big.js@npm:5.2.2"
   checksum: b89b6e8419b097a8fb4ed2399a1931a68c612bce3cfd5ca8c214b2d017531191070f990598de2fc6f3f993d91c0f08aa82697717f6b3b8732c9731866d233c9e
-  languageName: node
-  linkType: hard
-
-"bignumber.js@npm:9.0.0":
-  version: 9.0.0
-  resolution: "bignumber.js@npm:9.0.0"
-  checksum: 51f37890bca58bded63720add832b1c4898cf5b8ad95b5d4d9c3e763c461163d0355d11d91b740b0216b02e4e8cbb02455b28ee32140b775d96a39bbd817fdf6
   languageName: node
   linkType: hard
 
@@ -7537,7 +7537,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"denque@npm:^2.0.1":
+"denque@npm:^2.0.1, denque@npm:^2.1.0":
   version: 2.1.0
   resolution: "denque@npm:2.1.0"
   checksum: 1d4ae1d05e59ac3a3481e7b478293f4b4c813819342273f3d5b826c7ffa9753c520919ba264f377e09108d24ec6cf0ec0ac729a5686cbb8f32d797126c5dae74
@@ -10673,6 +10673,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"iconv-lite@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "iconv-lite@npm:0.7.0"
+  dependencies:
+    safer-buffer: ">= 2.1.2 < 3.0.0"
+  checksum: f362a8befb95e37f29be1d1290c17e0c9d0d4ad4fa62fcfd813cc9c937ab89401abed9a011f83e10651a267abb2aa231ec7da91d843570bec873bd98489b5bf8
+  languageName: node
+  linkType: hard
+
 "icss-replace-symbols@npm:^1.0.2, icss-replace-symbols@npm:^1.1.0":
   version: 1.1.0
   resolution: "icss-replace-symbols@npm:1.1.0"
@@ -13196,6 +13205,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"long@npm:^5.2.1":
+  version: 5.3.2
+  resolution: "long@npm:5.3.2"
+  checksum: be215816b563f4ca27ad3677678b53415bc489f9e3466414e54d2d85f5f8e86768547fa58493bacfb363ffc57a664debc83403ccc2178aef0c40aca28bad47c9
+  languageName: node
+  linkType: hard
+
 "longest-streak@npm:^2.0.1":
   version: 2.0.4
   resolution: "longest-streak@npm:2.0.4"
@@ -13296,6 +13312,13 @@ __metadata:
   version: 7.18.3
   resolution: "lru-cache@npm:7.18.3"
   checksum: e550d772384709deea3f141af34b6d4fa392e2e418c1498c078de0ee63670f1f46f5eee746e8ef7e69e1c895af0d4224e62ee33e66a543a14763b0f2e74c1356
+  languageName: node
+  linkType: hard
+
+"lru.min@npm:^1.0.0":
+  version: 1.1.3
+  resolution: "lru.min@npm:1.1.3"
+  checksum: 11451baf8606d29f77cc1e22fc917a4287dcf8d8c188f098c56c0b52489c4c6299ee8f910af53065d7bdd0073d3c5263c6003c5958877d7a03d305b977150e13
   languageName: node
   linkType: hard
 
@@ -14038,15 +14061,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mysql@npm:^2.17.1":
-  version: 2.18.1
-  resolution: "mysql@npm:2.18.1"
+"mysql2@npm:^3.6.0":
+  version: 3.15.3
+  resolution: "mysql2@npm:3.15.3"
   dependencies:
-    bignumber.js: 9.0.0
-    readable-stream: 2.3.7
-    safe-buffer: 5.1.2
-    sqlstring: 2.3.1
-  checksum: 430dec8525e849bbb53f78ffc7aa85b2d1535f49f96ae06064089219cfabfdb9b4051e1fabcbacc0e5b85174ae4c762b071b99d4fb4d062e98f90e723b1def0a
+    aws-ssl-profiles: ^1.1.1
+    denque: ^2.1.0
+    generate-function: ^2.3.1
+    iconv-lite: ^0.7.0
+    long: ^5.2.1
+    lru.min: ^1.0.0
+    named-placeholders: ^1.1.3
+    seq-queue: ^0.0.5
+    sqlstring: ^2.3.2
+  checksum: f0280dac3b49a36b320afbdff25c03e19017a9bd18c7f65f75a4083d9bb62172b5555f85870fba53e19485a79ae0273277b7318eda2be644e495528bad00610b
   languageName: node
   linkType: hard
 
@@ -14061,7 +14089,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"named-placeholders@npm:^1.1.2":
+"named-placeholders@npm:^1.1.2, named-placeholders@npm:^1.1.3":
   version: 1.1.3
   resolution: "named-placeholders@npm:1.1.3"
   dependencies:
@@ -15162,10 +15190,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-connection-string@npm:0.1.3":
-  version: 0.1.3
-  resolution: "pg-connection-string@npm:0.1.3"
-  checksum: 0ec5612a9c59b22fe2353165eea2f98d403bfe216678a88549610a27f23d60f922db19969e1b7c020904b6d15499674f69e078566d14c7969e54a8b720acd932
+"pg-cloudflare@npm:^1.2.7":
+  version: 1.2.7
+  resolution: "pg-cloudflare@npm:1.2.7"
+  checksum: 8e66fa9aaf3be9da7570d294c6170ead48ae9187e670dcc4219eb381fb598a12823d90c20f301d76d70e49840dbec8c7eb5aa2af0d2698c0325b634c86bbcd18
   languageName: node
   linkType: hard
 
@@ -15176,6 +15204,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pg-connection-string@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "pg-connection-string@npm:2.9.1"
+  checksum: 23e63951f866ea400b227976be596963c5e68b84dc161df0aa3e36fe2dc281f405e5121d71ba9d2f27973e25a46dbb219056fd91080505bcadc9ae98c9663cf3
+  languageName: node
+  linkType: hard
+
 "pg-int8@npm:1.0.1":
   version: 1.0.1
   resolution: "pg-int8@npm:1.0.1"
@@ -15183,19 +15218,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-packet-stream@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "pg-packet-stream@npm:1.1.0"
-  checksum: 5da0fcb7c878a46f299543b098b67243d20bcd845f5eb46afd1dcef9782a7a8759fab3ac13b1b4b40646f534dc301327be9084e3bfbb07f312cac4c81e22a1b9
-  languageName: node
-  linkType: hard
-
-"pg-pool@npm:^2.0.10":
-  version: 2.0.10
-  resolution: "pg-pool@npm:2.0.10"
+"pg-pool@npm:^3.10.1":
+  version: 3.10.1
+  resolution: "pg-pool@npm:3.10.1"
   peerDependencies:
-    pg: ">5.0"
-  checksum: 5913584d3d1611747f445dae8ae1595140be4ef6eedc8164b45fe7ee48aed99f83853d93ec75b21021b2f593983a624ad6cf8e1dbed759590a3e04459e39171e
+    pg: ">=8.0"
+  checksum: 98135a7384be40886bba7100b9ce1a74671ff3877390f68e6db6d50ea56a7f524f7e44e01c02d61efeda97d9dc22d6115d0c66aa7f3cf5b8e892424862d0111a
   languageName: node
   linkType: hard
 
@@ -15208,6 +15236,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pg-protocol@npm:^1.10.3":
+  version: 1.10.3
+  resolution: "pg-protocol@npm:1.10.3"
+  checksum: 2d8c3b2747526706d37fdf35fc6e87c4a170cf8deb89fac65c562df26b4e0f42b76d62c6d1dbd096725e9a081a8725796f27af874c9e72753499c794472faad7
+  languageName: node
+  linkType: hard
+
 "pg-protocol@npm:^1.6.0":
   version: 1.6.0
   resolution: "pg-protocol@npm:1.6.0"
@@ -15215,7 +15250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-types@npm:^2.1.0":
+"pg-types@npm:2.2.0, pg-types@npm:^2.1.0":
   version: 2.2.0
   resolution: "pg-types@npm:2.2.0"
   dependencies:
@@ -15225,22 +15260,6 @@ __metadata:
     postgres-date: ~1.0.4
     postgres-interval: ^1.1.0
   checksum: bf4ec3f594743442857fb3a8dfe5d2478a04c98f96a0a47365014557cbc0b4b0cee01462c79adca863b93befbf88f876299b75b72c665b5fb84a2c94fbd10316
-  languageName: node
-  linkType: hard
-
-"pg@npm:^7.18.1":
-  version: 7.18.2
-  resolution: "pg@npm:7.18.2"
-  dependencies:
-    buffer-writer: 2.0.0
-    packet-reader: 1.0.0
-    pg-connection-string: 0.1.3
-    pg-packet-stream: ^1.1.0
-    pg-pool: ^2.0.10
-    pg-types: ^2.1.0
-    pgpass: 1.x
-    semver: 4.3.2
-  checksum: aa4906baa14406aa07f2e3c7ef4c835f9be1836d7f1764cdc45d0aa8bc1baaf36aff05a0b1ad766f58b93055936de7f50a6755e6eed26c369f33b725d116fad0
   languageName: node
   linkType: hard
 
@@ -15268,7 +15287,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pgpass@npm:1.x":
+"pg@npm:^8.16.3":
+  version: 8.16.3
+  resolution: "pg@npm:8.16.3"
+  dependencies:
+    pg-cloudflare: ^1.2.7
+    pg-connection-string: ^2.9.1
+    pg-pool: ^3.10.1
+    pg-protocol: ^1.10.3
+    pg-types: 2.2.0
+    pgpass: 1.0.5
+  peerDependencies:
+    pg-native: ">=3.0.1"
+  dependenciesMeta:
+    pg-cloudflare:
+      optional: true
+  peerDependenciesMeta:
+    pg-native:
+      optional: true
+  checksum: ebc98c9480a11f8de74fffd205c2c161f14fc7cd8e19b152b38c7464d7202f59ad52fb1facb3a25319c343118c2fff44f7f46302415e730485878ceccf24241a
+  languageName: node
+  linkType: hard
+
+"pgpass@npm:1.0.5, pgpass@npm:1.x":
   version: 1.0.5
   resolution: "pgpass@npm:1.0.5"
   dependencies:
@@ -17522,21 +17563,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:2.3.7":
-  version: 2.3.7
-  resolution: "readable-stream@npm:2.3.7"
-  dependencies:
-    core-util-is: ~1.0.0
-    inherits: ~2.0.3
-    isarray: ~1.0.0
-    process-nextick-args: ~2.0.0
-    safe-buffer: ~5.1.1
-    string_decoder: ~1.1.1
-    util-deprecate: ~1.0.1
-  checksum: e4920cf7549a60f8aaf694d483a0e61b2a878b969d224f89b3bc788b8d920075132c4b55a7494ee944c7b6a9a0eada28a7f6220d80b0312ece70bbf08eeca755
-  languageName: node
-  linkType: hard
-
 "readable-stream@npm:^3.1.1, readable-stream@npm:^3.6.0, readable-stream@npm:^3.6.2":
   version: 3.6.2
   resolution: "readable-stream@npm:3.6.2"
@@ -18468,15 +18494,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:4.3.2":
-  version: 4.3.2
-  resolution: "semver@npm:4.3.2"
-  bin:
-    semver: ./bin/semver
-  checksum: a0bc4015f01c1843a4f270b0a8e668bbc99e2847d239ae9103c7eb54ab6b5c426d8e857c8796025fefeb131984825da977b0c2bcfbb2179ac22dbb018f91acfd
-  languageName: node
-  linkType: hard
-
 "semver@npm:^6.0.0, semver@npm:^6.1.0, semver@npm:^6.1.2, semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
@@ -19117,13 +19134,6 @@ __metadata:
   version: 1.0.3
   resolution: "sprintf-js@npm:1.0.3"
   checksum: 19d79aec211f09b99ec3099b5b2ae2f6e9cdefe50bc91ac4c69144b6d3928a640bb6ae5b3def70c2e85a2c3d9f5ec2719921e3a59d3ca3ef4b2fd1a4656a0df3
-  languageName: node
-  linkType: hard
-
-"sqlstring@npm:2.3.1":
-  version: 2.3.1
-  resolution: "sqlstring@npm:2.3.1"
-  checksum: de4299cf9bd0f49abae5b4eddde42c7ae7c447e035498ec50b3264610d6f0efbe433eeed2d20d48b6362bf46fd96c85cf6db240e994dbe6d5c3f9dac6d7ffd31
   languageName: node
   linkType: hard
 
@@ -20796,10 +20806,10 @@ __metadata:
     meddleware: ^3.0.4
     mini-css-extract-plugin: ^0.8.2
     morgan: ^1.10.0
-    mysql: ^2.17.1
+    mysql2: ^3.6.0
     nodemon: ^1.19.4
     optimize-css-assets-webpack-plugin: ^5.0.6
-    pg: ^7.18.1
+    pg: ^8.16.3
     postcss: ^8.4.0
     postcss-import: ^12.0.1
     postcss-loader: ^3.0.0
