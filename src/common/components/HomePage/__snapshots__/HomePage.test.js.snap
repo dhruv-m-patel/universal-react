@@ -57,7 +57,7 @@ exports[`HomePage it should render 1`] = `
           className="col-md-4 col-sm-10 offset-md-4 offset-sm-1"
         >
           <h5>
-            This starter-kit was built with:
+            This starter app was built with:
           </h5>
           <ul>
             <li>
@@ -67,7 +67,7 @@ exports[`HomePage it should render 1`] = `
               Redux
             </li>
             <li>
-              React Router
+              React Router v6
             </li>
             <li>
               Webpack v4
