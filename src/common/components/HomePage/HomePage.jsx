@@ -58,6 +58,14 @@ export default function HomePage() {
                 View Posts (Modern React Features Demo)
               </Link>
             </div>
+            <div>
+              <Link
+                to="/users"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                View Users (useTransition Demo)
+              </Link>
+            </div>
           </div>
         </div>
       </div>
