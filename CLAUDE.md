@@ -24,7 +24,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Universal React is a server-side rendered (SSR) React application boilerplate with database support. It uses Express for the server, React 18 for the UI, Webpack 4 for bundling, and supports MySQL or PostgreSQL databases.
+Universal React is a server-side rendered (SSR) React application boilerplate with database support. It uses Express for the server, React 18 for the UI, Vite 5 for blazing-fast bundling, and supports MySQL or PostgreSQL databases. The UI is built with Radix UI primitives and Tailwind CSS for modern, accessible components.
 
 ## Development Commands
 
@@ -39,14 +39,15 @@ yarn install
 
 ### Development
 
-- `yarn start-dev` - Start development server with hot-reloading (uses babel-node)
+- `yarn start-dev` - Start development server with Vite HMR (uses babel-node + Vite middleware)
 - `yarn start:watch` - Clean, build, and start with nodemon for auto-restart
 
 ### Building
 
-- `yarn build` - Build both server and client for production
+- `yarn build` - Build both server and client for production with Vite (< 5s total!)
 - `yarn build:server` - Transpile server code with Babel to `build/` directory
-- `yarn build:client` - Bundle client code with Webpack to `build-static/` directory
+- `yarn build:client` - Bundle client code with Vite to `build-static/` directory (3-4s)
+- `yarn build:ssr` - Build SSR bundle with Vite to `build/server/` directory (< 1s)
 - `yarn clean` - Remove build and build-static directories
 
 ### Production
@@ -55,9 +56,9 @@ yarn install
 
 ### Testing
 
-- `yarn test` - Run all tests with Jest
-- `yarn ci:test` - Run tests with snapshot updates and coverage (used in CI)
-- `yarn pretest` - Clear Jest cache (runs automatically before tests)
+- `yarn test` - Run all tests with Vitest (46 tests passing)
+- `yarn test:ui` - Run Vitest with UI for interactive test debugging
+- `yarn test:coverage` - Run tests with coverage reports
 
 ### Linting
 
@@ -77,7 +78,7 @@ yarn install
 
 ### Storybook
 
-- `yarn storybook` - Start Storybook on port 3001
+- `yarn storybook` - Start Storybook v8 with Vite on port 3001
 - `yarn build-storybook` - Build static Storybook
 
 ## Conventional Commits
@@ -173,7 +174,7 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 1. Creates Express app and HTTP server
 2. Loads configuration using confit with protocol handlers
-3. In development: configures webpack-dev-middleware and webpack-hot-middleware for HMR
+3. In development: configures Vite dev server middleware for instant HMR (~50-200ms)
 4. Applies middleware from configuration using meddleware
 5. Optionally connects to MySQL or PostgreSQL based on `DB_DRIVER` env var
 
@@ -181,7 +182,7 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 1. Logger (morgan) - priority 20
 2. Static files from `./static` - priority 21
-3. Webpack assets from `./build-static` - priority 22
+3. Vite dev middleware (dev only) or static assets from `./build-static` (prod) - priority 22
 4. Cookie parser - priority 23
 5. JSON body parser - priority 24
 6. Form body parser - priority 25
@@ -191,14 +192,15 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 ### Server-Side Rendering (SSR)
 
-**renderPage middleware** (`src/server/middleware/renderPage.js`):
+**renderPageVite middleware** (`src/server/middleware/renderPageVite.js`):
 
 - Catches all requests not handled by API routes
-- Uses `@loadable/server` ChunkExtractor to track which chunks are needed
+- In development: Uses Vite's `ssrLoadModule` to load fresh server entry on each request
+- In production: Uses pre-built SSR bundle from `build/server/entry-server.mjs`
 - Creates Redux store with preloaded state (from `req.initialState` or DEFAULT_STATE)
 - Renders React app to string using `renderToString` with StaticRouter
-- Injects preloaded state into window.**PRELOADED_STATE**
-- Returns complete HTML with script/style tags from ChunkExtractor
+- Injects preloaded state into `window.__PRELOADED_STATE__`
+- Returns complete HTML with proper script/style tags from Vite manifest
 
 ### Client Architecture
 
@@ -208,17 +210,17 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 1. Reads `window.__PRELOADED_STATE__` from SSR
 2. Creates Redux store with preloaded state
-3. Uses `loadableReady()` to wait for all loadable components
-4. Hydrates React app into `#root` div using `hydrateRoot` (React 18)
+3. Hydrates React app into `#root` div using `hydrateRoot` (React 18)
+4. Vite handles all module loading and HMR in development
 
 ### Code Splitting
 
-Uses `@loadable/component` for route-based code splitting:
+Uses `React.lazy()` for route-based code splitting:
 
-- Routes are defined in `src/common/router.jsx` using loadable() dynamic imports
-- Each route component is split into separate chunks
-- ChunkExtractor on server identifies required chunks
-- loadableReady() on client waits for chunks before hydration
+- Routes are defined in `src/common/router.jsx` using `React.lazy()` dynamic imports
+- Each route component is split into separate chunks by Vite automatically
+- Server uses non-lazy imports from `src/common/router-server.jsx` for SSR
+- Client uses lazy imports for optimal bundle splitting
 
 ### Routing
 
@@ -231,9 +233,10 @@ Uses `@loadable/component` for route-based code splitting:
 
 **Client routes** (`src/common/router.jsx`):
 
-- Uses react-router-dom with Switch and Route components
-- All routes use loadable() for code splitting
+- Uses react-router-dom v6 with Routes and Route components
+- All routes use `React.lazy()` for code splitting
 - Client-side routing handled by BrowserRouter in `src/client/renderApp.js`
+- Note: Router v6 uses element prop instead of component/render props
 
 ### Database Integration
 
@@ -271,22 +274,30 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 ### Build System
 
-**Webpack** (`webpack.config.js`):
+**Vite** (`vite.config.js`):
 
-- Entry: `src/client/index.js` (with HMR in dev)
-- Output: `build-static/` with chunkhash in production
-- CSS Modules with hash-based class names
-- Code splitting: vendor chunk for React/React-DOM/Router
-- Plugins: ManifestPlugin, LoadablePlugin, MiniCssExtractPlugin
-- Dev mode: HMR with webpack-hot-middleware
+- Client entry: `src/entry-client.jsx`
+- SSR entry: `src/entry-server.jsx`
+- Output: `build-static/` for client, `build/server/` for SSR
+- CSS Modules with hash-based class names (automatic)
+- Code splitting: Vite automatically splits vendor chunks and routes
+- PostCSS with Tailwind CSS processing
+- Dev mode: Lightning-fast HMR (~50-200ms) with Vite dev middleware
+- Build time: < 5s total (vs previous ~90s with Webpack!)
+
+**Key Vite features**:
+
+- Native ESM in development (no bundling needed)
+- Optimized production builds with Rollup
+- Automatic CSS code splitting
+- Built-in TypeScript/JSX support
+- `.vite/manifest.json` tracks all assets for SSR
 
 **Babel** (`babel.config.js`):
 
-- Transpiles JSX and modern JS features
-- Two environments:
-  - Default: Uses css-modules-transform for server-side CSS handling
-  - webpack: Skips css-modules-transform (Webpack handles CSS)
-- Key plugins: @loadable/babel-plugin, babel-plugin-macros
+- Transpiles JSX and modern JS features for server code
+- Uses css-modules-transform for server-side CSS handling
+- Used for `build/` directory transpilation only (Vite handles client)
 
 ## Adding Features
 
@@ -308,7 +319,8 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 **Client route**:
 
 1. Create component in `src/common/components/`
-2. Add Route in `src/common/router.jsx` using loadable() dynamic import
+2. Add Route in `src/common/router.jsx` using `React.lazy()` dynamic import
+3. Also add to `src/common/router-server.jsx` with regular import for SSR
 
 ### Adding database support
 
@@ -322,10 +334,11 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 1. Create component in `src/common/components/ComponentName/`
 2. Component file: `ComponentName.jsx`
-3. Test file: `ComponentName.test.js`
-4. Styles (if needed): `ComponentName.css` (CSS Modules)
+3. Test file: `ComponentName.test.jsx` (use .jsx extension for JSX in tests)
+4. Styles: Use Tailwind classes or `ComponentName.css` (CSS Modules) or both
 5. Export from `index.js` for clean imports
-6. Optionally add Storybook story: `ComponentName.stories.js`
+6. Add Storybook story: `ComponentName.stories.jsx` (CSF3 format)
+7. Consider using Radix UI primitives for accessible base components
 
 ## Important Patterns
 
@@ -335,12 +348,29 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 - In production: code runs from `build/` directory after transpilation
 - Use `sourcepath:` protocol in config to handle this automatically
 
-### CSS Modules
+### CSS Modules + Tailwind
 
-- All .css files are treated as CSS Modules
+**CSS Modules**:
+
+- All .css files are treated as CSS Modules (automatic with Vite)
 - Class names are locally scoped with format: `[name]__[local]___[hash:base64:5]`
 - Import styles as object: `import styles from './Component.css'`
 - Use className: `className={styles.myClass}`
+
+**Tailwind CSS**:
+
+- Utility-first CSS framework configured in `tailwind.config.js`
+- Use directly in className: `className="flex items-center gap-2 px-4 py-2"`
+- Dark mode support: `className="bg-white dark:bg-slate-800"`
+- Can combine with CSS Modules: `className={`${styles.custom} flex gap-2`}`
+- PostCSS processes Tailwind directives automatically
+
+**Radix UI**:
+
+- Unstyled accessible component primitives
+- Style with Tailwind classes
+- Example: `<Dialog.Root>`, `<Select.Root>`, `<Tooltip.Root>`
+- Located in `src/common/ui/` for reusable components
 
 ### Preloading state for SSR
 
@@ -355,16 +385,38 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 ## Testing
 
-- Jest configured in `jest.config.js`
-- Test files: `*.test.js` alongside components
-- Snapshots: `__snapshots__/` directories
-- Run single test: `yarn test path/to/test.test.js`
-- Update snapshots: `yarn test -u`
+- Vitest configured in `vitest.config.mjs`
+- Test files: `*.test.jsx` alongside components (use .jsx for JSX in tests)
+- Testing Library: `@testing-library/react` for component testing
+- Happy-dom: Lightweight DOM implementation (faster than jsdom)
+- Run single test: `yarn test path/to/test.test.jsx`
+- Use `composeStories` from `@storybook/react` to test stories
+- DOM assertions preferred over snapshots
+
+**Test Pattern**:
+
+```javascript
+import { render, screen } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
+import * as stories from './Component.stories';
+
+const { Default } = composeStories(stories);
+
+test('renders component', () => {
+  render(<Default />);
+  expect(screen.getByText('Hello')).toBeInTheDocument();
+});
+```
 
 ## Important things to remember
 
 - Must commit work at important checkpoints
 - Always ensure lint command passes when creating commit
 - Always ensure lint and test commands pass when pushing commits to remote
-- Stories should follow CSF format
-- Test files should not be rendering jsx, they should be importing stories and rendering them using composeStories and render functions from testing library for storybook
+- Stories should follow CSF3 format (Component Story Format 3)
+- Test files should use `.test.jsx` extension (not `.test.js`)
+- Test files should import stories and render them using `composeStories` from `@storybook/react`
+- Use DOM assertions (`toBeInTheDocument`, `toHaveClass`) instead of snapshots
+- Use Tailwind utility classes for rapid styling
+- Consider Radix UI primitives for accessible base components
+- React Router v6 uses `<Routes>` not `<Switch>`, and `element` prop not `component`
