@@ -1,4 +1,5 @@
 import React, { useState, useTransition, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Card, Spinner, Pagination } from '../../ui';
 
 export default function UsersPage() {
@@ -139,9 +140,11 @@ export default function UsersPage() {
 
                 {/* User info */}
                 <div className="flex-grow">
-                  <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                    {user.name}
-                  </h2>
+                  <Link to={`/users/${user.id}`}>
+                    <h2 className="text-xl font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                      {user.name}
+                    </h2>
+                  </Link>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     @{user.username}
                   </p>

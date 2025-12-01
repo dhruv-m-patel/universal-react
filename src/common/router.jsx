@@ -7,6 +7,7 @@ const ReduxExamplePage = lazy(() => import('./components/ReduxExamplePage'));
 const PostsPage = lazy(() => import('./components/PostsPage'));
 const PostDetailPage = lazy(() => import('./components/PostDetailPage'));
 const UsersPage = lazy(() => import('./components/UsersPage'));
+const UserProfilePage = lazy(() => import('./components/UserProfilePage'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
 // Loading fallback component
@@ -27,6 +28,7 @@ export default function Router() {
         <Route path="/posts" element={<PostsPage />} />
         <Route path="/posts/:id" element={<PostDetailPage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/:id" element={<UserProfilePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
