@@ -2,7 +2,7 @@
 
 exports[`NotFound > it should render 1`] = `
 <div
-  className="page lightTheme container-fluid"
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
 >
   <div
     className="textRight"
@@ -48,7 +48,7 @@ exports[`NotFound > it should render 1`] = `
     <br />
     <br />
     <div
-      className="content container"
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
     >
       <div
         className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
