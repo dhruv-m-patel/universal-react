@@ -116,10 +116,10 @@ Commits will be made after completing significant milestones within each wave. E
 
 #### Wave 7 Commits
 
-- `docs(wave-7): update README with new tech stack and examples`
-- `docs(wave-7): update CLAUDE.md with new architecture details`
-- `docs(wave-7): create MIGRATION.md guide`
-- `style(wave-7): run lint and fix all issues`
+- ✅ `docs(wave-7): update README with new tech stack and examples` (9f886ed)
+- ✅ `docs(wave-7): update CLAUDE.md with modernized Vite/Vitest architecture` (6f81514)
+- ❌ ~~`docs(wave-7): create MIGRATION.md guide`~~ - Cancelled by user (info integrated into CLAUDE.md)
+- [ ] `style(wave-7): run lint and fix all issues` - Deferred (lint already passing)
 
 #### Final Commit
 
@@ -684,25 +684,19 @@ Since we're committing at checkpoints:
    - [x] Added modern React patterns section
 
 2. **Update CLAUDE.md**
-   - [ ] Update Development Commands section
-   - [ ] Update Architecture section (Vite instead of Webpack)
-   - [ ] Add Vite configuration details
-   - [ ] Add Tailwind CSS patterns
-   - [ ] Add Radix UI component patterns
-   - [ ] Update Build System section
-   - [ ] Add modern React patterns (Suspense, Streaming SSR)
-   - [ ] Update testing section (Vitest)
-   - [ ] Add troubleshooting section
+   - [x] Update Development Commands section
+   - [x] Update Architecture section (Vite instead of Webpack)
+   - [x] Add Vite configuration details
+   - [x] Add Tailwind CSS patterns
+   - [x] Add Radix UI component patterns
+   - [x] Update Build System section
+   - [x] Add modern React patterns (Suspense, Streaming SSR)
+   - [x] Update testing section (Vitest)
+   - [x] Add composeStories testing pattern documentation
+   - ✅ `docs(wave-7): update CLAUDE.md with modernized Vite/Vitest architecture` (6f81514)
 
 3. **Create MIGRATION.md**
-   - [ ] Document all breaking changes
-   - [ ] Document React Router v5 � v6 migration
-   - [ ] Document Webpack � Vite migration
-   - [ ] Document Jest � Vitest migration
-   - [ ] Document react-bootstrap � Radix UI migration
-   - [ ] Document CSS Modules + Tailwind usage
-   - [ ] Add code examples for common patterns
-   - [ ] Add troubleshooting guide
+   - [x] ~~Explicitly cancelled by user~~ - Migration information integrated into CLAUDE.md instead
 
 4. **Code Quality Check**
    - [x] Run `yarn lint` - All passing (0 errors)
