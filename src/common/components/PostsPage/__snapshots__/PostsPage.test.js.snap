@@ -161,67 +161,71 @@ molestiae porro eius odio et labore et velit aut
                 </a>
               </div>
               <div
-                className="flex items-center justify-center gap-2 mt-8 flex-wrap"
+                className="space-y-4 mt-8"
               >
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="flex items-center justify-center gap-2 flex-wrap"
                 >
-                  Previous
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-blue-600 text-white"
-                  onClick={[Function]}
-                  type="button"
+                  <button
+                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    disabled={true}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg transition-colors bg-blue-600 text-white"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    1
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    2
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    3
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    4
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    5
+                  </button>
+                  <button
+                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Next
+                  </button>
+                </div>
+                <div
+                  className="text-center text-sm text-gray-500"
                 >
+                  Page 
                   1
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  2
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  3
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  4
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  5
-                </button>
-                <button
-                  className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next
-                </button>
-              </div>
-              <div
-                className="text-center text-sm text-gray-500 mt-4"
-              >
-                Page 
-                1
-                 of 
-                10
+                   of 
+                  10
+                </div>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Page from '../Page';
-import { Container, Card, Spinner } from '../ui';
+import { Container, Card, Spinner, Pagination } from '../ui';
 
 export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,36 +19,6 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
     setCurrentPage(page);
     fetchPosts(page, postsPerPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      handlePageChange(currentPage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      handlePageChange(currentPage + 1);
-    }
-  };
-
-  // Generate page numbers array
-  const getPageNumbers = () => {
-    const pages = [];
-    const maxPagesToShow = 5;
-    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-    // Adjust start if we're near the end
-    if (endPage - startPage < maxPagesToShow - 1) {
-      startPage = Math.max(1, endPage - maxPagesToShow + 1);
-    }
-
-    for (let i = startPage; i <= endPage; i += 1) {
-      pages.push(i);
-    }
-    return pages;
   };
 
   return (
@@ -96,44 +66,12 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
                 ))}
 
                 {/* Pagination */}
-                <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
-                  <button
-                    type="button"
-                    onClick={handlePrevious}
-                    disabled={currentPage === 1}
-                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
-
-                  {getPageNumbers().map((page) => (
-                    <button
-                      key={page}
-                      type="button"
-                      onClick={() => handlePageChange(page)}
-                      className={`px-4 py-2 rounded-lg ${
-                        currentPage === page
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  ))}
-
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    disabled={currentPage === totalPages}
-                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
-                </div>
-
-                <div className="text-center text-sm text-gray-500 mt-4">
-                  Page {currentPage} of {totalPages}
-                </div>
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                  className="mt-8"
+                />
               </div>
             )}
 
