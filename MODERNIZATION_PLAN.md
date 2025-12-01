@@ -3,7 +3,6 @@
 **Document Version:** 1.1
 **Last Updated:** 2025-12-01
 **Status:** Wave 6 Completed - In Progress (Waves 1-6 Complete)
-**Owner:** Senior Engineering Team
 
 ---
 
