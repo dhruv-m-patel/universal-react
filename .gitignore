@@ -1,6 +1,7 @@
 node_modules/
 dist/
 build-static/
+storybook-static/
 # testing
 /coverage
 
@@ -23,6 +24,6 @@ yarn-error.log*
 !.yarn/sdks
 !.yarn/versions
 
-.CLAUDE.local.md
+CLAUDE.local.md
 .claude/*
 prompts/*

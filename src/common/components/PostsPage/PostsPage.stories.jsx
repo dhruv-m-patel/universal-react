@@ -28,33 +28,44 @@ const mockPosts = [
   },
 ];
 
+const mockFetchPosts = () => {};
+
+// Default state with posts
 export const Default = () => (
   <PostsPage
     posts={mockPosts}
     isFetching={false}
     error={undefined}
-    fetchPosts={() => {}}
+    fetchPosts={mockFetchPosts}
   />
 );
 
+// Loading state
 export const Loading = () => (
-  <PostsPage posts={[]} isFetching error={undefined} fetchPosts={() => {}} />
+  <PostsPage
+    posts={[]}
+    isFetching={true}
+    error={undefined}
+    fetchPosts={mockFetchPosts}
+  />
 );
 
+// Error state
 export const Error = () => (
   <PostsPage
     posts={[]}
     isFetching={false}
     error="Failed to fetch posts"
-    fetchPosts={() => {}}
+    fetchPosts={mockFetchPosts}
   />
 );
 
+// Empty state - no posts available
 export const Empty = () => (
   <PostsPage
     posts={[]}
     isFetching={false}
     error={undefined}
-    fetchPosts={() => {}}
+    fetchPosts={mockFetchPosts}
   />
 );

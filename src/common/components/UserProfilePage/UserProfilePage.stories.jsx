@@ -5,6 +5,10 @@ import UserProfilePage from './UserProfilePage';
 export default {
   title: 'Pages/UserProfilePage',
   component: UserProfilePage,
+  parameters: {
+    // Disable global MemoryRouter - this story has its own with route params
+    router: { disable: true },
+  },
   decorators: [
     (Story) => (
       <MemoryRouter initialEntries={['/users/1']}>

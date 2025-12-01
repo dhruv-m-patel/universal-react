@@ -360,3 +360,11 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 - Snapshots: `__snapshots__/` directories
 - Run single test: `yarn test path/to/test.test.js`
 - Update snapshots: `yarn test -u`
+
+## Important things to remember
+
+- Must commit work at important checkpoints
+- Always ensure lint command passes when creating commit
+- Always ensure lint and test commands pass when pushing commits to remote
+- Stories should follow CSF format
+- Test files should not be rendering jsx, they should be importing stories and rendering them using composeStories and render functions from testing library for storybook
