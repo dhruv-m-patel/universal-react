@@ -4,9 +4,9 @@ import store from 'store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
-import Container from 'react-bootstrap/Container';
 import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
+import { Container } from '../ui';
 import * as styles from './Page.css';
 
 const cx = classnames.bind(styles);
