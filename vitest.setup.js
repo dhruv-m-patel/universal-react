@@ -1,4 +1,6 @@
-// Jest setup file to handle expected console warnings during tests
+// Vitest setup file to handle expected console warnings during tests
+import '@testing-library/jest-dom';
+import { afterEach } from 'vitest';
 
 // Store original console methods
 const originalError = console.error;
@@ -44,7 +46,7 @@ console.warn = (...args) => {
   originalWarn.apply(console, args);
 };
 
-// Clean up any pending timers/promises after each test
+// Clean up after each test
 afterEach(() => {
-  jest.clearAllTimers();
+  // Vitest automatically clears mocks and timers when mockReset/restoreMocks is configured
 });
