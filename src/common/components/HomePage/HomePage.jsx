@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <Page>
       <div className="flex justify-center">
-        <div className="w-full sm:w-10/12 md:w-1/3 sm:ml-[8.333333%] md:ml-[33.333333%]">
+        <div className="w-full sm:w-10/12 md:w-3/3 sm:ml-[8.333333%] md:ml-[33.333333%]">
           <h5 className="text-lg font-semibold mb-4">
             This starter app was built with:
           </h5>

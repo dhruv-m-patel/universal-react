@@ -54,7 +54,7 @@ exports[`HomePage > it should render 1`] = `
         className="flex justify-center"
       >
         <div
-          className="w-full sm:w-10/12 md:w-1/3 sm:ml-[8.333333%] md:ml-[33.333333%]"
+          className="w-full sm:w-10/12 md:w-3/3 sm:ml-[8.333333%] md:ml-[33.333333%]"
         >
           <h5
             className="text-lg font-semibold mb-4"

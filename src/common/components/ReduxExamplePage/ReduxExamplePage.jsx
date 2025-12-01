@@ -23,7 +23,7 @@ export default function ReduxExamplePage({
   return (
     <Page>
       <div className="flex justify-center">
-        <div className="w-full sm:w-10/12 md:w-1/2 sm:ml-[8.333333%] md:ml-[25%]">
+        <div className="w-full sm:w-10/12 md:w-3/3 sm:ml-[8.333333%] md:ml-[25%]">
           <h4 className="text-xl font-semibold mb-4">
             An example page showing Redux integration
           </h4>
