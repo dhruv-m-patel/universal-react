@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 const HomePage = lazy(() => import('./components/HomePage'));
 const ReduxExamplePage = lazy(() => import('./components/ReduxExamplePage'));
 const PostsPage = lazy(() => import('./components/PostsPage'));
+const PostDetailPage = lazy(() => import('./components/PostDetailPage'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
 // Loading fallback component
@@ -23,6 +24,7 @@ export default function Router() {
         <Route path="/" element={<HomePage />} />
         <Route path="/redux-example" element={<ReduxExamplePage />} />
         <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/:id" element={<PostDetailPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

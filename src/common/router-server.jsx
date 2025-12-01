@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import ReduxExamplePage from './components/ReduxExamplePage';
 import PostsPage from './components/PostsPage';
+import PostDetailPage from './components/PostDetailPage';
 import NotFound from './components/NotFound';
 
 export default function Router() {
@@ -14,6 +15,7 @@ export default function Router() {
       <Route path="/" element={<HomePage />} />
       <Route path="/redux-example" element={<ReduxExamplePage />} />
       <Route path="/posts" element={<PostsPage />} />
+      <Route path="/posts/:id" element={<PostDetailPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

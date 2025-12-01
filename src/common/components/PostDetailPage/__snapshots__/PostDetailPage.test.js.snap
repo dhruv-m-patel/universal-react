@@ -1,0 +1,713 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PostDetailPage > CommentsError story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="space-y-6"
+            >
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+              >
+                <h1
+                  className="text-3xl font-bold mb-4 capitalize"
+                >
+                  sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+                </h1>
+                <div
+                  className="text-sm text-gray-500 mb-4"
+                >
+                  Post #
+                  1
+                   • User #
+                  1
+                </div>
+                <p
+                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                  quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto
+                </p>
+              </div>
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700"
+              >
+                <p
+                  className="text-red-600 dark:text-red-200"
+                >
+                  Failed to fetch comments
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostDetailPage > Default story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="space-y-6"
+            >
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+              >
+                <h1
+                  className="text-3xl font-bold mb-4 capitalize"
+                >
+                  sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+                </h1>
+                <div
+                  className="text-sm text-gray-500 mb-4"
+                >
+                  Post #
+                  1
+                   • User #
+                  1
+                </div>
+                <p
+                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                  quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto
+                </p>
+              </div>
+              <div
+                className="space-y-4"
+              >
+                <h3
+                  className="text-xl font-semibold"
+                >
+                  Comments (
+                  2
+                  )
+                </h3>
+                <div
+                  className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                >
+                  <div
+                    className="flex items-start gap-3"
+                  >
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"
+                    >
+                      <span
+                        className="text-blue-600 dark:text-blue-300 font-semibold"
+                      >
+                        E
+                      </span>
+                    </div>
+                    <div
+                      className="flex-1"
+                    >
+                      <h4
+                        className="font-semibold"
+                      >
+                        id labore ex et quam laborum
+                      </h4>
+                      <p
+                        className="text-sm text-gray-500"
+                      >
+                        Eliseo@gardner.biz
+                      </p>
+                      <p
+                        className="mt-2 text-gray-700 dark:text-gray-300"
+                      >
+                        laudantium enim quasi est quidem magnam voluptate ipsam eos
+tempora quo necessitatibus
+dolor quam autem quasi
+reiciendis et nam sapiente accusantium
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                >
+                  <div
+                    className="flex items-start gap-3"
+                  >
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"
+                    >
+                      <span
+                        className="text-blue-600 dark:text-blue-300 font-semibold"
+                      >
+                        J
+                      </span>
+                    </div>
+                    <div
+                      className="flex-1"
+                    >
+                      <h4
+                        className="font-semibold"
+                      >
+                        quo vero reiciendis velit similique earum
+                      </h4>
+                      <p
+                        className="text-sm text-gray-500"
+                      >
+                        Jayne_Kuhic@sydney.com
+                      </p>
+                      <p
+                        className="mt-2 text-gray-700 dark:text-gray-300"
+                      >
+                        est natus enim nihil est dolore omnis voluptatem numquam
+et omnis occaecati quod ullam at
+voluptatem error expedita pariatur
+nihil sint nostrum voluptatem reiciendis et
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostDetailPage > LoadingComments story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="space-y-6"
+            >
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+              >
+                <h1
+                  className="text-3xl font-bold mb-4 capitalize"
+                >
+                  sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+                </h1>
+                <div
+                  className="text-sm text-gray-500 mb-4"
+                >
+                  Post #
+                  1
+                   • User #
+                  1
+                </div>
+                <p
+                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                  quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto
+                </p>
+              </div>
+              <div
+                className="flex items-center justify-center gap-3 py-4"
+              >
+                <div
+                  className="inline-block animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] h-4 w-4"
+                  role="status"
+                >
+                  <span
+                    className="sr-only"
+                  >
+                    Loading...
+                  </span>
+                </div>
+                <span>
+                  Loading comments...
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostDetailPage > LoadingPost story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="flex items-center justify-center gap-3 py-8"
+            >
+              <div
+                className="inline-block animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] h-8 w-8"
+                role="status"
+              >
+                <span
+                  className="sr-only"
+                >
+                  Loading...
+                </span>
+              </div>
+              <span
+                className="text-lg"
+              >
+                Loading post...
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostDetailPage > NoComments story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="space-y-6"
+            >
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+              >
+                <h1
+                  className="text-3xl font-bold mb-4 capitalize"
+                >
+                  sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+                </h1>
+                <div
+                  className="text-sm text-gray-500 mb-4"
+                >
+                  Post #
+                  1
+                   • User #
+                  1
+                </div>
+                <p
+                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                >
+                  quia et suscipit
+suscipit recusandae consequuntur expedita et cum
+reprehenderit molestiae ut ut quas totam
+nostrum rerum est autem sunt rem eveniet architecto
+                </p>
+              </div>
+              <div
+                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm text-center py-4"
+              >
+                <p
+                  className="text-gray-600 dark:text-gray-300"
+                >
+                  No comments yet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostDetailPage > PostError story should render 1`] = `
+<div
+  className="mx-auto px-4 sm:px-6 lg:px-8 w-full page lightTheme"
+>
+  <div
+    className="textRight"
+  >
+    Dark Mode
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-toggle-off fa-w-18 fa-2x clickable padTop10px"
+      data-icon="toggle-off"
+      data-prefix="fas"
+      focusable="false"
+      onClick={[Function]}
+      role="img"
+      style={{}}
+      viewBox="0 0 576 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M384 64H192C85.961 64 0 149.961 0 256s85.961 192 192 192h192c106.039 0 192-85.961 192-192S490.039 64 384 64zM64 256c0-70.741 57.249-128 128-128 70.741 0 128 57.249 128 128 0 70.741-57.249 128-128 128-70.741 0-128-57.249-128-128zm320 128h-48.905c65.217-72.858 65.236-183.12 0-256H384c70.741 0 128 57.249 128 128 0 70.74-57.249 128-128 128z"
+        fill="currentColor"
+        style={{}}
+      />
+    </svg>
+  </div>
+  <div
+    className="app"
+  >
+    <header
+      className="appHeader"
+    >
+      <img
+        alt="logo"
+        className="appLogo"
+        src="/images/react.svg"
+      />
+      <h2>
+        React App
+      </h2>
+      <small>
+        A React starter app with SSR support.
+      </small>
+    </header>
+    <br />
+    <br />
+    <div
+      className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl content"
+    >
+      <div
+        className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+      >
+        <div
+          className="flex justify-center"
+        >
+          <div
+            className="w-full max-w-4xl"
+          >
+            <a
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+              href="/posts"
+              onClick={[Function]}
+            >
+              ← Back to Posts
+            </a>
+            <div
+              className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700"
+            >
+              <p
+                className="text-red-600 dark:text-red-200"
+              >
+                Failed to fetch post
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
