@@ -375,49 +375,49 @@ Since we're committing at checkpoints:
 #### Tasks
 
 1. **Install Radix UI Primitives**
-   - [ ] Install: `@radix-ui/react-dialog`
-   - [ ] Install: `@radix-ui/react-dropdown-menu`
-   - [ ] Install: `@radix-ui/react-select`
-   - [ ] Install: `@radix-ui/react-tabs`
-   - [ ] Install: `@radix-ui/react-tooltip`
-   - [ ] Install: `@radix-ui/react-alert-dialog`
-   - [ ] Install: `@radix-ui/react-popover`
-   - [ ] Install other primitives as needed
+   - [x] Install: `@radix-ui/react-dialog`
+   - [x] Install: `@radix-ui/react-dropdown-menu`
+   - [x] Install: `@radix-ui/react-select`
+   - [x] Install: `@radix-ui/react-tabs`
+   - [x] Install: `@radix-ui/react-tooltip`
+   - [x] Install: `@radix-ui/react-alert-dialog`
+   - [x] Install: `@radix-ui/react-popover`
+   - [x] Install other primitives as needed
 
 2. **Create Base Component Library**
-   - [ ] Create `src/common/components/ui/Button.jsx` (Radix + Tailwind)
-   - [ ] Create `src/common/components/ui/Card.jsx`
-   - [ ] Create `src/common/components/ui/Input.jsx`
-   - [ ] Create `src/common/components/ui/Select.jsx`
-   - [ ] Create `src/common/components/ui/Dialog.jsx`
-   - [ ] Create `src/common/components/ui/Dropdown.jsx`
-   - [ ] Create `src/common/components/ui/Tabs.jsx`
-   - [ ] Create `src/common/components/ui/Tooltip.jsx`
-   - [ ] Create component exports in `src/common/components/ui/index.js`
+   - [ ] Create `src/common/components/ui/Button.jsx` (Radix + Tailwind) - Not needed yet
+   - [x] Create `src/common/components/ui/Card.jsx` (with stories and tests)
+   - [ ] Create `src/common/components/ui/Input.jsx` - Not needed yet
+   - [ ] Create `src/common/components/ui/Select.jsx` - Not needed yet
+   - [ ] Create `src/common/components/ui/Dialog.jsx` - Not needed yet
+   - [ ] Create `src/common/components/ui/Dropdown.jsx` - Not needed yet
+   - [ ] Create `src/common/components/ui/Tabs.jsx` - Not needed yet
+   - [ ] Create `src/common/components/ui/Tooltip.jsx` - Not needed yet
+   - [x] Create component exports in `src/common/components/ui/index.js`
 
 3. **Migrate Existing Components**
-   - [ ] Audit HomePage for react-bootstrap usage
-   - [ ] Migrate HomePage to Radix UI + Tailwind
-   - [ ] Test HomePage renders correctly
-   - [ ] Audit ReduxExamplePage for react-bootstrap usage
-   - [ ] Migrate ReduxExamplePage to Radix UI + Tailwind
-   - [ ] Test ReduxExamplePage works correctly
-   - [ ] Audit NotFound page
-   - [ ] Migrate NotFound to Radix UI + Tailwind
-   - [ ] Update Page component if needed
+   - [x] Audit HomePage for react-bootstrap usage
+   - [x] Migrate HomePage to Radix UI + Tailwind
+   - [x] Test HomePage renders correctly
+   - [x] Audit ReduxExamplePage for react-bootstrap usage
+   - [x] Migrate ReduxExamplePage to Radix UI + Tailwind
+   - [x] Test ReduxExamplePage works correctly
+   - [x] Audit NotFound page
+   - [x] Migrate NotFound to Radix UI + Tailwind
+   - [x] Update Page component if needed
 
 4. **Update Tests**
-   - [ ] Update HomePage tests for new components
-   - [ ] Update ReduxExamplePage tests
-   - [ ] Update NotFound tests
-   - [ ] Update snapshots if needed
-   - [ ] Ensure all tests pass
+   - [x] Update HomePage tests for new components
+   - [x] Update ReduxExamplePage tests
+   - [x] Update NotFound tests
+   - [x] Update snapshots if needed
+   - [x] Ensure all tests pass (21 tests passing)
 
 5. **Remove react-bootstrap**
-   - [ ] Verify no react-bootstrap imports remain
-   - [ ] Remove react-bootstrap from package.json
-   - [ ] Remove Bootstrap CDN link from HTML template
-   - [ ] Clean up unused styles
+   - [x] Verify no react-bootstrap imports remain
+   - [x] Remove react-bootstrap from package.json
+   - [x] Remove Bootstrap CDN link from HTML template (N/A - no CDN)
+   - [x] Clean up unused styles
 
 **Success Criteria:**
 
