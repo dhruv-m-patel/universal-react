@@ -113,13 +113,28 @@ exports[`HomePage > it should render 1`] = `
           </ul>
           <br />
           <br />
-          <a
-            className="text-blue-600 hover:text-blue-800 underline"
-            href="/redux-example"
-            onClick={[Function]}
+          <div
+            className="space-y-3"
           >
-            View Example Page with Redux integration
-          </a>
+            <div>
+              <a
+                className="text-blue-600 hover:text-blue-800 underline"
+                href="/redux-example"
+                onClick={[Function]}
+              >
+                View Example Page with Redux integration
+              </a>
+            </div>
+            <div>
+              <a
+                className="text-blue-600 hover:text-blue-800 underline"
+                href="/posts"
+                onClick={[Function]}
+              >
+                View Posts (Modern React Features Demo)
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

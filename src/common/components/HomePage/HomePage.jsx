@@ -41,12 +41,24 @@ export default function HomePage() {
           </ul>
           <br />
           <br />
-          <Link
-            to="/redux-example"
-            className="text-blue-600 hover:text-blue-800 underline"
-          >
-            View Example Page with Redux integration
-          </Link>
+          <div className="space-y-3">
+            <div>
+              <Link
+                to="/redux-example"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                View Example Page with Redux integration
+              </Link>
+            </div>
+            <div>
+              <Link
+                to="/posts"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                View Posts (Modern React Features Demo)
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </Page>
