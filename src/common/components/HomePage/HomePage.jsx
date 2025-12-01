@@ -1,52 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Page from '../Page';
 
 export default function HomePage() {
   return (
     <Page>
-      <Row>
-        <Col sm={{ offset: 1, span: 10 }} md={{ offset: 4, span: 4 }}>
-          <h5>This starter app was built with:</h5>
-          <ul>
+      <div className="flex justify-center">
+        <div className="w-full sm:w-10/12 md:w-1/3 sm:ml-[8.333333%] md:ml-[33.333333%]">
+          <h5 className="text-lg font-semibold mb-4">
+            This starter app was built with:
+          </h5>
+          <ul className="list-disc list-inside space-y-2">
             <li>React v18</li>
             <li>Redux</li>
             <li>React Router v6</li>
-            <li>Webpack v4</li>
+            <li>Vite v5</li>
             <li>Babel v7</li>
             <li>Express v4</li>
             <li>
               Configuration (using{' '}
-              <a href="https://www.npmjs.com/package/confit" target="blank">
+              <a
+                href="https://www.npmjs.com/package/confit"
+                target="blank"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
                 confit
               </a>{' '}
               /{' '}
-              <a href="https://www.npmjs.com/package/meddleware" target="blank">
+              <a
+                href="https://www.npmjs.com/package/meddleware"
+                target="blank"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
                 meddleware
               </a>
               )
             </li>
-            <li>
-              Code splitting (using{' '}
-              <a
-                href="https://loadable-components.com/docs/getting-started/"
-                target="blank"
-              >
-                Loadable Components
-              </a>
-              )
-            </li>
-            <li>React Bootstrap</li>
+            <li>Code splitting (using React.lazy)</li>
+            <li>Radix UI + Tailwind CSS</li>
           </ul>
           <br />
           <br />
-          <Link to="/redux-example">
+          <Link
+            to="/redux-example"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
             View Example Page with Redux integration
           </Link>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </Page>
   );
 }
