@@ -33,12 +33,12 @@ exports[`Page > it should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>

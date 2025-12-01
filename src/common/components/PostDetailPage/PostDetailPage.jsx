@@ -17,8 +17,10 @@ function Comments({ comments, isFetchingComments, commentsError }) {
 
   if (commentsError) {
     return (
-      <Card className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700">
-        <p className="text-red-600 dark:text-red-200">{commentsError}</p>
+      <Card className="bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800">
+        <p className="text-red-700 dark:text-red-200 font-medium">
+          {commentsError}
+        </p>
       </Card>
     );
   }
@@ -26,7 +28,9 @@ function Comments({ comments, isFetchingComments, commentsError }) {
   if (comments.length === 0) {
     return (
       <Card className="text-center py-4">
-        <p className="text-gray-600 dark:text-gray-300">No comments yet.</p>
+        <p className="text-gray-600 dark:text-gray-300 text-lg">
+          No comments yet.
+        </p>
       </Card>
     );
   }
@@ -37,15 +41,19 @@ function Comments({ comments, isFetchingComments, commentsError }) {
       {comments.map((comment) => (
         <Card key={comment.id}>
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-              <span className="text-blue-600 dark:text-blue-300 font-semibold">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-800 flex items-center justify-center">
+              <span className="text-blue-700 dark:text-blue-200 font-semibold">
                 {comment.email.charAt(0).toUpperCase()}
               </span>
             </div>
             <div className="flex-1">
-              <h4 className="font-semibold">{comment.name}</h4>
-              <p className="text-sm text-gray-500">{comment.email}</p>
-              <p className="mt-2 text-gray-700 dark:text-gray-300">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100">
+                {comment.name}
+              </h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {comment.email}
+              </p>
+              <p className="mt-2 text-gray-700 dark:text-gray-200">
                 {comment.body}
               </p>
             </div>
@@ -132,21 +140,23 @@ export default function PostDetailPage({
             )}
 
             {postError && (
-              <Card className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700">
-                <p className="text-red-600 dark:text-red-200">{postError}</p>
+              <Card className="bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800">
+                <p className="text-red-700 dark:text-red-200 font-medium">
+                  {postError}
+                </p>
               </Card>
             )}
 
             {!isFetchingPost && !postError && post && (
               <div className="space-y-6">
                 <Card>
-                  <h1 className="text-3xl font-bold mb-4 capitalize">
+                  <h1 className="text-3xl font-bold mb-4 capitalize text-gray-900 dark:text-gray-100">
                     {post.title}
                   </h1>
-                  <div className="text-sm text-gray-500 mb-4">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                     Post #{post.id} • User #{post.userId}
                   </div>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
                     {post.body}
                   </p>
                 </Card>
@@ -171,7 +181,7 @@ export default function PostDetailPage({
 
             {!isFetchingPost && !postError && !post && (
               <Card className="text-center py-8">
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-lg">
                   Post not found.
                 </p>
               </Card>

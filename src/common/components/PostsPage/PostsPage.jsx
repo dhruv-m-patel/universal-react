@@ -39,8 +39,10 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
             )}
 
             {error && (
-              <Card className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700">
-                <p className="text-red-600 dark:text-red-200">{error}</p>
+              <Card className="bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800">
+                <p className="text-red-700 dark:text-red-200 font-medium">
+                  {error}
+                </p>
               </Card>
             )}
 
@@ -52,13 +54,13 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
                     className="hover:shadow-md transition-shadow"
                   >
                     <Link to={`/posts/${post.id}`} className="block">
-                      <h2 className="text-xl font-semibold mb-2 text-blue-600 hover:text-blue-800 capitalize">
+                      <h2 className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 capitalize">
                         {post.title}
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-300 line-clamp-2">
+                      <p className="text-gray-700 dark:text-gray-200 line-clamp-2">
                         {post.body}
                       </p>
-                      <div className="mt-3 text-sm text-gray-500">
+                      <div className="mt-3 text-sm text-gray-600 dark:text-gray-400">
                         Post #{post.id} • User #{post.userId}
                       </div>
                     </Link>
@@ -77,7 +79,7 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
 
             {!isFetching && !error && posts.length === 0 && (
               <Card className="text-center py-8">
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-lg">
                   No posts found.
                 </p>
               </Card>

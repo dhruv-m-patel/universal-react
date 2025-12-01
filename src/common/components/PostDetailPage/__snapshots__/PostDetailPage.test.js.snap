@@ -33,12 +33,12 @@ exports[`PostDetailPage > CommentsError story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -70,15 +70,15 @@ exports[`PostDetailPage > CommentsError story should render 1`] = `
               className="space-y-6"
             >
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
               >
                 <h1
-                  className="text-3xl font-bold mb-4 capitalize"
+                  className="text-3xl font-bold mb-4 capitalize text-gray-900 dark:text-gray-100"
                 >
                   sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                 </h1>
                 <div
-                  className="text-sm text-gray-500 mb-4"
+                  className="text-sm text-gray-600 dark:text-gray-400 mb-4"
                 >
                   Post #
                   1
@@ -86,7 +86,7 @@ exports[`PostDetailPage > CommentsError story should render 1`] = `
                   1
                 </div>
                 <p
-                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
                 >
                   quia et suscipit
 suscipit recusandae consequuntur expedita et cum
@@ -95,10 +95,10 @@ nostrum rerum est autem sunt rem eveniet architecto
                 </p>
               </div>
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800"
               >
                 <p
-                  className="text-red-600 dark:text-red-200"
+                  className="text-red-700 dark:text-red-200 font-medium"
                 >
                   Failed to fetch comments
                 </p>
@@ -145,12 +145,12 @@ exports[`PostDetailPage > Default story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -182,15 +182,15 @@ exports[`PostDetailPage > Default story should render 1`] = `
               className="space-y-6"
             >
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
               >
                 <h1
-                  className="text-3xl font-bold mb-4 capitalize"
+                  className="text-3xl font-bold mb-4 capitalize text-gray-900 dark:text-gray-100"
                 >
                   sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                 </h1>
                 <div
-                  className="text-sm text-gray-500 mb-4"
+                  className="text-sm text-gray-600 dark:text-gray-400 mb-4"
                 >
                   Post #
                   1
@@ -198,7 +198,7 @@ exports[`PostDetailPage > Default story should render 1`] = `
                   1
                 </div>
                 <p
-                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
                 >
                   quia et suscipit
 suscipit recusandae consequuntur expedita et cum
@@ -217,16 +217,16 @@ nostrum rerum est autem sunt rem eveniet architecto
                   )
                 </h3>
                 <div
-                  className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                  className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
                 >
                   <div
                     className="flex items-start gap-3"
                   >
                     <div
-                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-800 flex items-center justify-center"
                     >
                       <span
-                        className="text-blue-600 dark:text-blue-300 font-semibold"
+                        className="text-blue-700 dark:text-blue-200 font-semibold"
                       >
                         E
                       </span>
@@ -235,17 +235,17 @@ nostrum rerum est autem sunt rem eveniet architecto
                       className="flex-1"
                     >
                       <h4
-                        className="font-semibold"
+                        className="font-semibold text-gray-900 dark:text-gray-100"
                       >
                         id labore ex et quam laborum
                       </h4>
                       <p
-                        className="text-sm text-gray-500"
+                        className="text-sm text-gray-600 dark:text-gray-400"
                       >
                         Eliseo@gardner.biz
                       </p>
                       <p
-                        className="mt-2 text-gray-700 dark:text-gray-300"
+                        className="mt-2 text-gray-700 dark:text-gray-200"
                       >
                         laudantium enim quasi est quidem magnam voluptate ipsam eos
 tempora quo necessitatibus
@@ -256,16 +256,16 @@ reiciendis et nam sapiente accusantium
                   </div>
                 </div>
                 <div
-                  className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                  className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
                 >
                   <div
                     className="flex items-start gap-3"
                   >
                     <div
-                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"
+                      className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-800 flex items-center justify-center"
                     >
                       <span
-                        className="text-blue-600 dark:text-blue-300 font-semibold"
+                        className="text-blue-700 dark:text-blue-200 font-semibold"
                       >
                         J
                       </span>
@@ -274,17 +274,17 @@ reiciendis et nam sapiente accusantium
                       className="flex-1"
                     >
                       <h4
-                        className="font-semibold"
+                        className="font-semibold text-gray-900 dark:text-gray-100"
                       >
                         quo vero reiciendis velit similique earum
                       </h4>
                       <p
-                        className="text-sm text-gray-500"
+                        className="text-sm text-gray-600 dark:text-gray-400"
                       >
                         Jayne_Kuhic@sydney.com
                       </p>
                       <p
-                        className="mt-2 text-gray-700 dark:text-gray-300"
+                        className="mt-2 text-gray-700 dark:text-gray-200"
                       >
                         est natus enim nihil est dolore omnis voluptatem numquam
 et omnis occaecati quod ullam at
@@ -337,12 +337,12 @@ exports[`PostDetailPage > LoadingComments story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -374,15 +374,15 @@ exports[`PostDetailPage > LoadingComments story should render 1`] = `
               className="space-y-6"
             >
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
               >
                 <h1
-                  className="text-3xl font-bold mb-4 capitalize"
+                  className="text-3xl font-bold mb-4 capitalize text-gray-900 dark:text-gray-100"
                 >
                   sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                 </h1>
                 <div
-                  className="text-sm text-gray-500 mb-4"
+                  className="text-sm text-gray-600 dark:text-gray-400 mb-4"
                 >
                   Post #
                   1
@@ -390,7 +390,7 @@ exports[`PostDetailPage > LoadingComments story should render 1`] = `
                   1
                 </div>
                 <p
-                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
                 >
                   quia et suscipit
 suscipit recusandae consequuntur expedita et cum
@@ -457,12 +457,12 @@ exports[`PostDetailPage > LoadingPost story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -550,12 +550,12 @@ exports[`PostDetailPage > NoComments story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -587,15 +587,15 @@ exports[`PostDetailPage > NoComments story should render 1`] = `
               className="space-y-6"
             >
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700"
               >
                 <h1
-                  className="text-3xl font-bold mb-4 capitalize"
+                  className="text-3xl font-bold mb-4 capitalize text-gray-900 dark:text-gray-100"
                 >
                   sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                 </h1>
                 <div
-                  className="text-sm text-gray-500 mb-4"
+                  className="text-sm text-gray-600 dark:text-gray-400 mb-4"
                 >
                   Post #
                   1
@@ -603,7 +603,7 @@ exports[`PostDetailPage > NoComments story should render 1`] = `
                   1
                 </div>
                 <p
-                  className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+                  className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed"
                 >
                   quia et suscipit
 suscipit recusandae consequuntur expedita et cum
@@ -612,10 +612,10 @@ nostrum rerum est autem sunt rem eveniet architecto
                 </p>
               </div>
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm text-center py-4"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 text-center py-4"
               >
                 <p
-                  className="text-gray-600 dark:text-gray-300"
+                  className="text-gray-600 dark:text-gray-300 text-lg"
                 >
                   No comments yet.
                 </p>
@@ -662,12 +662,12 @@ exports[`PostDetailPage > PostError story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -696,10 +696,10 @@ exports[`PostDetailPage > PostError story should render 1`] = `
               ← Back to Posts
             </a>
             <div
-              className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700"
+              className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800"
             >
               <p
-                className="text-red-600 dark:text-red-200"
+                className="text-red-700 dark:text-red-200 font-medium"
               >
                 Failed to fetch post
               </p>

@@ -33,12 +33,12 @@ exports[`PostsPage > Default story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -68,7 +68,7 @@ exports[`PostsPage > Default story should render 1`] = `
               className="space-y-4"
             >
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 hover:shadow-md transition-shadow"
               >
                 <a
                   className="block"
@@ -76,12 +76,12 @@ exports[`PostsPage > Default story should render 1`] = `
                   onClick={[Function]}
                 >
                   <h2
-                    className="text-xl font-semibold mb-2 text-blue-600 hover:text-blue-800 capitalize"
+                    className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 capitalize"
                   >
                     sunt aut facere repellat provident occaecati excepturi optio reprehenderit
                   </h2>
                   <p
-                    className="text-gray-600 dark:text-gray-300 line-clamp-2"
+                    className="text-gray-700 dark:text-gray-200 line-clamp-2"
                   >
                     quia et suscipit
 suscipit recusandae consequuntur expedita et cum
@@ -89,7 +89,7 @@ reprehenderit molestiae ut ut quas totam
 nostrum rerum est autem sunt rem eveniet architecto
                   </p>
                   <div
-                    className="mt-3 text-sm text-gray-500"
+                    className="mt-3 text-sm text-gray-600 dark:text-gray-400"
                   >
                     Post #
                     1
@@ -99,7 +99,7 @@ nostrum rerum est autem sunt rem eveniet architecto
                 </a>
               </div>
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 hover:shadow-md transition-shadow"
               >
                 <a
                   className="block"
@@ -107,12 +107,12 @@ nostrum rerum est autem sunt rem eveniet architecto
                   onClick={[Function]}
                 >
                   <h2
-                    className="text-xl font-semibold mb-2 text-blue-600 hover:text-blue-800 capitalize"
+                    className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 capitalize"
                   >
                     qui est esse
                   </h2>
                   <p
-                    className="text-gray-600 dark:text-gray-300 line-clamp-2"
+                    className="text-gray-700 dark:text-gray-200 line-clamp-2"
                   >
                     est rerum tempore vitae
 sequi sint nihil reprehenderit dolor beatae ea dolores neque
@@ -120,7 +120,7 @@ fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis
 qui aperiam non debitis possimus qui neque nisi nulla
                   </p>
                   <div
-                    className="mt-3 text-sm text-gray-500"
+                    className="mt-3 text-sm text-gray-600 dark:text-gray-400"
                   >
                     Post #
                     2
@@ -130,7 +130,7 @@ qui aperiam non debitis possimus qui neque nisi nulla
                 </a>
               </div>
               <div
-                className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 hover:shadow-md transition-shadow"
               >
                 <a
                   className="block"
@@ -138,12 +138,12 @@ qui aperiam non debitis possimus qui neque nisi nulla
                   onClick={[Function]}
                 >
                   <h2
-                    className="text-xl font-semibold mb-2 text-blue-600 hover:text-blue-800 capitalize"
+                    className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 capitalize"
                   >
                     ea molestias quasi exercitationem repellat qui ipsa sit aut
                   </h2>
                   <p
-                    className="text-gray-600 dark:text-gray-300 line-clamp-2"
+                    className="text-gray-700 dark:text-gray-200 line-clamp-2"
                   >
                     et iusto sed quo iure
 voluptatem occaecati omnis eligendi aut ad
@@ -151,7 +151,7 @@ voluptatem doloribus vel accusantium quis pariatur
 molestiae porro eius odio et labore et velit aut
                   </p>
                   <div
-                    className="mt-3 text-sm text-gray-500"
+                    className="mt-3 text-sm text-gray-600 dark:text-gray-400"
                   >
                     Post #
                     3
@@ -167,7 +167,7 @@ molestiae porro eius odio et labore et velit aut
                   className="flex items-center justify-center gap-2 flex-wrap"
                 >
                   <button
-                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-gray-900 dark:text-gray-100 font-medium"
                     disabled={true}
                     onClick={[Function]}
                     type="button"
@@ -175,42 +175,42 @@ molestiae porro eius odio et labore et velit aut
                     Previous
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg transition-colors bg-blue-600 text-white"
+                    className="px-4 py-2 rounded-lg transition-colors font-medium bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600"
                     onClick={[Function]}
                     type="button"
                   >
                     1
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    className="px-4 py-2 rounded-lg transition-colors font-medium bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-gray-100"
                     onClick={[Function]}
                     type="button"
                   >
                     2
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    className="px-4 py-2 rounded-lg transition-colors font-medium bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-gray-100"
                     onClick={[Function]}
                     type="button"
                   >
                     3
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    className="px-4 py-2 rounded-lg transition-colors font-medium bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-gray-100"
                     onClick={[Function]}
                     type="button"
                   >
                     4
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg transition-colors bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    className="px-4 py-2 rounded-lg transition-colors font-medium bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-gray-100"
                     onClick={[Function]}
                     type="button"
                   >
                     5
                   </button>
                   <button
-                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-gray-900 dark:text-gray-100 font-medium"
                     disabled={false}
                     onClick={[Function]}
                     type="button"
@@ -219,7 +219,7 @@ molestiae porro eius odio et labore et velit aut
                   </button>
                 </div>
                 <div
-                  className="text-center text-sm text-gray-500"
+                  className="text-center text-sm text-gray-600 dark:text-gray-400"
                 >
                   Page 
                   1
@@ -269,12 +269,12 @@ exports[`PostsPage > Empty story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -301,10 +301,10 @@ exports[`PostsPage > Empty story should render 1`] = `
               Posts
             </h1>
             <div
-              className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm text-center py-8"
+              className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 text-center py-8"
             >
               <p
-                className="text-gray-600 dark:text-gray-300"
+                className="text-gray-600 dark:text-gray-300 text-lg"
               >
                 No posts found.
               </p>
@@ -350,12 +350,12 @@ exports[`PostsPage > Error story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>
@@ -382,10 +382,10 @@ exports[`PostsPage > Error story should render 1`] = `
               Posts
             </h1>
             <div
-              className="rounded-lg bg-gray-50 dark:bg-gray-800 p-6 shadow-sm bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700"
+              className="rounded-lg bg-gray-50 dark:bg-slate-800 p-6 shadow-sm border border-gray-200 dark:border-slate-700 bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800"
             >
               <p
-                className="text-red-600 dark:text-red-200"
+                className="text-red-700 dark:text-red-200 font-medium"
               >
                 Failed to fetch posts
               </p>
@@ -431,12 +431,12 @@ exports[`PostsPage > Loading story should render 1`] = `
     <header
       className="appHeader"
     >
-      <img
-        alt="logo"
-        className="appLogo"
-        src="/images/react.svg"
-      />
       <h2>
+        <img
+          alt="logo"
+          className="appLogo"
+          src="/images/react.svg"
+        />
         React App
       </h2>
       <small>

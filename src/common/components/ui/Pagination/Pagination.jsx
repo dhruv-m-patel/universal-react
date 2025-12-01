@@ -50,7 +50,7 @@ export default function Pagination({
           type="button"
           onClick={handlePrevious}
           disabled={currentPage === 1}
-          className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-gray-900 dark:text-gray-100 font-medium"
         >
           Previous
         </button>
@@ -61,10 +61,10 @@ export default function Pagination({
             type="button"
             onClick={() => onPageChange(page)}
             className={classnames(
-              'px-4 py-2 rounded-lg transition-colors',
+              'px-4 py-2 rounded-lg transition-colors font-medium',
               currentPage === page
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+                ? 'bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600'
+                : 'bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-900 dark:text-gray-100'
             )}
           >
             {page}
@@ -75,14 +75,14 @@ export default function Pagination({
           type="button"
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-gray-900 dark:text-gray-100 font-medium"
         >
           Next
         </button>
       </div>
 
       {showPageInfo && (
-        <div className="text-center text-sm text-gray-500">
+        <div className="text-center text-sm text-gray-600 dark:text-gray-400">
           Page {currentPage} of {totalPages}
         </div>
       )}
