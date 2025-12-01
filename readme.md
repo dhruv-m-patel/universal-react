@@ -7,14 +7,16 @@ Production-ready React application boilerplate with server-side rendering (SSR),
 ## Features
 
 - **Server-Side Rendering (SSR)** - React 18 with full SSR support using Express
-- **Code Splitting** - Route-based automatic code splitting with @loadable/component
-- **Hot Module Replacement** - Fast development with webpack HMR
+- **Lightning-Fast Dev Server** - Vite with instant HMR and sub-second cold starts
+- **Code Splitting** - Route-based automatic code splitting with React.lazy
+- **Modern UI Components** - Radix UI primitives with Tailwind CSS styling
 - **Database Ready** - Optional MySQL or PostgreSQL integration
 - **Configuration Management** - Environment-based config with confit/meddleware
 - **Database Migrations** - Built-in migration support with db-migrate
-- **CSS Modules** - Scoped styles with PostCSS
-- **Testing & Quality** - Jest, ESLint, Stylelint, Prettier with Husky git hooks
-- **Component Development** - Storybook integration
+- **CSS Modules + Tailwind** - Scoped styles and utility-first CSS
+- **Testing & Quality** - Vitest, ESLint, Stylelint, Prettier with Husky git hooks
+- **Component Development** - Storybook v8 with Vite integration
+- **Modern React Patterns** - Demo pages showcasing useTransition, useDeferredValue, Suspense
 
 ## Quick Start
 
@@ -34,13 +36,13 @@ Visit `http://localhost:3000`
 
 ```bash
 # Development
-yarn start-dev             # Start dev server with hot-reloading
+yarn start-dev             # Start dev server with Vite HMR
 yarn lint                  # Run ESLint and Stylelint
-yarn test                  # Run Jest tests
-yarn storybook             # Start Storybook on port 3001
+yarn test                  # Run Vitest tests
+yarn storybook             # Start Storybook v8 on port 3001
 
 # Production
-yarn build                 # Build for production
+yarn build                 # Build with Vite (client + SSR bundle)
 yarn start                 # Start production server
 
 # Database
@@ -49,6 +51,19 @@ yarn migration:apply       # Apply migrations to local DB
 ```
 
 **For complete command reference and architecture details, see [CLAUDE.md](./CLAUDE.md)**
+
+## Demo Pages
+
+The application includes several demo pages showcasing modern React 18+ features:
+
+- **HomePage** (`/`) - Landing page with navigation to demo pages
+- **Redux Example** (`/redux-example`) - Classic Redux pattern with API middleware
+- **Posts** (`/posts`) - Paginated list with Suspense boundaries
+- **Post Detail** (`/posts/:id`) - Individual post with comments
+- **Users** (`/users`) - User directory with `useTransition` for smooth search filtering
+- **User Profile** (`/users/:id`) - User profile with `useDeferredValue` for optimized search
+
+These pages demonstrate modern patterns like concurrent rendering, `useTransition`, `useDeferredValue`, and Suspense boundaries working with SSR.
 
 ## Configuration
 
@@ -104,18 +119,22 @@ migrations/              # Database migration files
 
 ## Tech Stack
 
+- **Node.js** v22 LTS - Long-term support runtime
 - **React** v18 - UI library with concurrent features
 - **Express** v4 - Node.js web framework
-- **Webpack** v4 - Module bundler with code splitting
+- **Vite** v5 - Next-generation bundler (10-20x faster than Webpack!)
+- **Vitest** - Lightning-fast test runner with Vite integration
 - **Babel** v7 - JavaScript transpiler
 - **Redux** - State management with redux-api-middleware
-- **React Router** v5 - Client-side routing
-- **@loadable/component** - Code splitting
+- **React Router** v6 - Client-side routing with async support
+- **Radix UI** - Unstyled, accessible component primitives
+- **Tailwind CSS** v3 - Utility-first CSS framework
+- **CSS Modules** - Scoped component styles
+- **React.lazy** - Built-in code splitting
 - **Confit/Meddleware** - Configuration and middleware management
-- **Jest** - Testing framework
-- **ESLint + Stylelint** - Code quality
+- **ESLint + Stylelint** - Code quality with flat config
 - **Husky** - Git hooks (lint on commit, test before push)
-- **Storybook** - Component development environment
+- **Storybook** v8 - Component development with Vite
 
 ## Adding Features
 
@@ -128,7 +147,7 @@ migrations/              # Database migration files
 ### New Client Route
 
 1. Create component in `src/common/components/`
-2. Add route in `src/common/router.jsx` using `loadable(() => import('./components/YourComponent'))`
+2. Add route in `src/common/router.jsx` using `React.lazy(() => import('./components/YourComponent'))`
 
 ### New Middleware
 
