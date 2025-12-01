@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import Page from '../Page';
-import { Spinner } from '../ui';
+import { Spinner } from '../../ui';
 import * as styles from './ReduxExamplePage.css';
 
 const cx = classnames.bind(styles);

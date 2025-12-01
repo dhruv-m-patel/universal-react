@@ -6,7 +6,7 @@ import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
-import { Container } from '../ui';
+import { Container } from '../../ui';
 import * as styles from './Page.css';
 
 const cx = classnames.bind(styles);

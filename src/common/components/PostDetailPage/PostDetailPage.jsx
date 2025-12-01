@@ -2,7 +2,7 @@ import React, { useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import Page from '../Page';
-import { Container, Card, Spinner } from '../ui';
+import { Container, Card, Spinner } from '../../ui';
 
 // Comments component wrapped in Suspense
 function Comments({ comments, isFetchingComments, commentsError }) {

@@ -1,4 +1,4 @@
-import Tester from '../../../../../tests/Tester';
+import Tester from '../../../../tests/Tester';
 import * as stories from './Pagination.stories';
 
 const tester = new Tester();

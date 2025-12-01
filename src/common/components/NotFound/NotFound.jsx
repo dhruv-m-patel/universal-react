@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../Page';
-import { Container, Card } from '../ui';
+import { Container, Card } from '../../ui';
 
 export default function HomePage() {
   return (
