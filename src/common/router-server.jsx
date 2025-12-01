@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 // React.lazy() doesn't work with renderToString() - it requires streaming SSR
 import HomePage from './components/HomePage';
 import ReduxExamplePage from './components/ReduxExamplePage';
+import PostsPage from './components/PostsPage';
 import NotFound from './components/NotFound';
 
 export default function Router() {
@@ -12,6 +13,7 @@ export default function Router() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/redux-example" element={<ReduxExamplePage />} />
+      <Route path="/posts" element={<PostsPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
