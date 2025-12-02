@@ -5,7 +5,6 @@ import express from 'express';
 import meddleware from 'meddleware';
 import handlers from 'shortstop-handlers';
 import shortstopRegex from 'shortstop-regex';
-import 'fetch-everywhere';
 import getConfiguration from '../lib/utils/getConfiguration';
 import betterRequire from '../lib/utils/betterRequire';
 
