@@ -6,7 +6,6 @@ module.exports = function (config) {
     '@babel/syntax-optional-chaining',
     '@babel/transform-react-inline-elements',
     '@babel/syntax-dynamic-import',
-    '@loadable/babel-plugin',
     'babel-plugin-macros',
   ];
 
@@ -21,7 +20,7 @@ module.exports = function (config) {
         '@babel/preset-env',
         {
           targets: { node: 'current' },
-          exclude: ['transform-regenerator'],
+          exclude: ['transform-regenerator', 'proposal-dynamic-import'],
         },
       ],
       '@babel/preset-react',

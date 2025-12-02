@@ -5,7 +5,6 @@ import express from 'express';
 import meddleware from 'meddleware';
 import handlers from 'shortstop-handlers';
 import shortstopRegex from 'shortstop-regex';
-import 'fetch-everywhere';
 import getConfiguration from '../lib/utils/getConfiguration';
 import betterRequire from '../lib/utils/betterRequire';
 
@@ -62,17 +61,40 @@ export default class ExpressServer {
       next();
     });
 
-    // NOTE: configure using webpack-dev-middleware and webpack-hot-middleware earlier than other middlewares
-    // for hot- reloading to work. Changing order may not guarantee live browser refresh.
+    // In development, disable all caching for HMR
     if (process.env.NODE_ENV === 'development') {
-      const webpack = require('webpack');
-      const compiler = webpack(require('../../webpack.config.js'));
-      this.app.use(
-        require('webpack-dev-middleware')(compiler, {
-          stats: { colors: true },
-        })
-      );
-      this.app.use(require('webpack-hot-middleware')(compiler));
+      this.app.use((req, res, next) => {
+        res.setHeader(
+          'Cache-Control',
+          'no-store, no-cache, must-revalidate, proxy-revalidate'
+        );
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+        next();
+      });
+    }
+
+    // NOTE: configure using Vite dev middleware earlier than other middlewares
+    // for hot module replacement to work. Changing order may not guarantee live browser refresh.
+    if (process.env.NODE_ENV === 'development') {
+      const { createServer: createViteServer } = require('vite');
+
+      const vite = await createViteServer({
+        server: {
+          middlewareMode: true,
+          hmr: {
+            // HMR will use the same port as the Express server
+            // We'll let the server auto-detect the port below
+            server: this.server,
+          },
+        },
+        appType: 'custom',
+      });
+
+      // Store vite instance for SSR
+      this.app.locals.vite = vite;
+      // Use vite's connect instance as middleware
+      this.app.use(vite.middlewares);
     }
 
     const middleware = config.get('meddleware');
@@ -81,12 +103,30 @@ export default class ExpressServer {
     }
 
     return new Promise((resolve, reject) => {
-      const port = ['staging', 'production'].includes(process.env.NODE_ENV)
+      const basePort = ['staging', 'production'].includes(process.env.NODE_ENV)
         ? process.env.PORT
         : config.get('port');
-      this.server.listen(port, () => {
-        resolve(config);
-      });
+
+      const tryPort = (port) => {
+        // Remove any existing error listeners
+        this.server.removeAllListeners('error');
+
+        this.server.once('error', (err) => {
+          if (err.code === 'EADDRINUSE') {
+            console.log(`Port ${port} is in use, trying ${port + 1}...`);
+            tryPort(port + 1);
+          } else {
+            reject(err);
+          }
+        });
+
+        this.server.listen(port, () => {
+          console.log(`✓ Server listening on http://localhost:${port}`);
+          resolve(config);
+        });
+      };
+
+      tryPort(basePort);
     });
   }
 

@@ -4,10 +4,10 @@ import store from 'store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
-import Container from 'react-bootstrap/Container';
 import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
-import styles from './Page.css';
+import { Container } from '../../ui';
+import * as styles from './Page.css';
 
 const cx = classnames.bind(styles);
 
@@ -57,8 +57,10 @@ export default function Page({ title, description, children }) {
       </div>
       <div className={cx('app')}>
         <header className={cx('appHeader')}>
-          <img src="/images/react.svg" className={cx('appLogo')} alt="logo" />
-          <h2>React App</h2>
+          <h2>
+            <img src="/images/react.svg" className={cx('appLogo')} alt="logo" />
+            React App
+          </h2>
           <small>A React starter app with SSR support.</small>
         </header>
         <br />
