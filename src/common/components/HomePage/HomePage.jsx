@@ -44,14 +44,6 @@ export default function HomePage() {
           <div className="space-y-3">
             <div>
               <Link
-                to="/redux-example"
-                className="text-blue-600 hover:text-blue-800 underline"
-              >
-                View Example Page with Redux integration
-              </Link>
-            </div>
-            <div>
-              <Link
                 to="/posts"
                 className="text-blue-600 hover:text-blue-800 underline"
               >

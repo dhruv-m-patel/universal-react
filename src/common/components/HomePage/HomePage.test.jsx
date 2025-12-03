@@ -24,9 +24,6 @@ describe('HomePage', () => {
 
     // Check navigation links
     expect(
-      screen.getByText('View Example Page with Redux integration')
-    ).toBeInTheDocument();
-    expect(
       screen.getByText('View Posts (Modern React Features Demo)')
     ).toBeInTheDocument();
     expect(
