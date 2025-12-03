@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
-import Page from '../Page';
+import Page from '../../components/Page';
 import { Container, Card, Spinner } from '../../ui';
 
 // Comments component wrapped in Suspense

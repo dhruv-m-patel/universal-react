@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Page from '../Page';
+import Page from '../../components/Page';
 import { Container, Card, Spinner, Pagination } from '../../ui';
 
 export default function PostsPage({ posts, isFetching, error, fetchPosts }) {

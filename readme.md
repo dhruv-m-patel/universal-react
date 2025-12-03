@@ -107,8 +107,9 @@ src/
 │   ├── app.jsx          # Client entry point with hydration
 │   ├── router.jsx       # Client route definitions with React.lazy
 │   └── ...              # Redux store and other client code
-├── common/              # Shared components
-│   └── components/      # React components (with tests and stories)
+├── common/              # Shared code
+│   ├── components/      # Reusable UI components (with tests and stories)
+│   └── pages/           # Page components rendered by routes
 ├── server/              # Server-side code
 │   ├── app.jsx          # SSR entry point
 │   ├── router.jsx       # Server route definitions (non-lazy imports)
@@ -157,8 +158,8 @@ migrations/              # Database migration files
 
 ### New Client Route
 
-1. Create component in `src/common/components/`
-2. Add route in `src/client/router.jsx` using `React.lazy(() => import('../common/components/YourComponent'))`
+1. Create page component in `src/common/pages/`
+2. Add route in `src/client/router.jsx` using `React.lazy(() => import('../common/pages/YourPage'))`
 3. Add route in `src/server/router.jsx` with regular import for SSR
 
 ### New Middleware

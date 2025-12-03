@@ -3,17 +3,13 @@ import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // Use React.lazy for code splitting (works with Vite)
-const HomePage = lazy(() => import('../common/components/HomePage'));
-const PostsPage = lazy(() => import('../common/components/PostsPage'));
-const PostDetailPage = lazy(
-  () => import('../common/components/PostDetailPage')
-);
-const UsersPage = lazy(() => import('../common/components/UsersPage'));
-const UserProfilePage = lazy(
-  () => import('../common/components/UserProfilePage')
-);
-const NotFound = lazy(() => import('../common/components/NotFound'));
-const ServerError = lazy(() => import('../common/components/ServerError'));
+const HomePage = lazy(() => import('../common/pages/HomePage'));
+const PostsPage = lazy(() => import('../common/pages/PostsPage'));
+const PostDetailPage = lazy(() => import('../common/pages/PostDetailPage'));
+const UsersPage = lazy(() => import('../common/pages/UsersPage'));
+const UserProfilePage = lazy(() => import('../common/pages/UserProfilePage'));
+const NotFound = lazy(() => import('../common/pages/NotFound'));
+const ServerError = lazy(() => import('../common/pages/ServerError'));
 
 // Loading fallback component
 function LoadingFallback() {

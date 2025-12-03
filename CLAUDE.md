@@ -217,9 +217,10 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 Uses `React.lazy()` for route-based code splitting:
 
-- Routes are defined in `src/common/router.jsx` using `React.lazy()` dynamic imports
+- Page components are located in `src/common/pages/`
+- Client routes in `src/client/router.jsx` use `React.lazy()` dynamic imports
+- Server routes in `src/server/router.jsx` use direct imports for SSR (no lazy loading)
 - Each route component is split into separate chunks by Vite automatically
-- Server uses non-lazy imports from `src/server/router.jsx` for SSR
 - Client uses lazy imports for optimal bundle splitting
 
 ### Routing
@@ -318,9 +319,9 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 **Client route**:
 
-1. Create component in `src/common/components/`
-2. Add Route in `src/client/router.jsx` using `React.lazy()` dynamic import
-3. Also add to `src/server/router.jsx` with regular import for SSR
+1. Create page component in `src/common/pages/PageName/`
+2. Add Route in `src/client/router.jsx` using `React.lazy(() => import('../common/pages/PageName'))`
+3. Add Route in `src/server/router.jsx` with direct import for SSR
 
 ### Adding database support
 

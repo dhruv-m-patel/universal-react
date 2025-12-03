@@ -3,13 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 
 // Direct imports for SSR (no lazy loading)
 // React.lazy() doesn't work with renderToString() - it requires streaming SSR
-import HomePage from '../common/components/HomePage';
-import PostsPage from '../common/components/PostsPage';
-import PostDetailPage from '../common/components/PostDetailPage';
-import UsersPage from '../common/components/UsersPage';
-import UserProfilePage from '../common/components/UserProfilePage';
-import NotFound from '../common/components/NotFound';
-import ServerError from '../common/components/ServerError';
+import HomePage from '../common/pages/HomePage';
+import PostsPage from '../common/pages/PostsPage';
+import PostDetailPage from '../common/pages/PostDetailPage';
+import UsersPage from '../common/pages/UsersPage';
+import UserProfilePage from '../common/pages/UserProfilePage';
+import NotFound from '../common/pages/NotFound';
+import ServerError from '../common/pages/ServerError';
 
 export default function Router() {
   return (
