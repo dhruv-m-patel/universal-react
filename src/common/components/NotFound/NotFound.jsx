@@ -10,19 +10,22 @@ export default function NotFound() {
       description="The requested resource was not found"
     >
       <Container>
-        <Card className="bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800 p-12 text-center max-w-2xl mx-auto">
-          <h1 className="text-6xl font-bold mb-4 text-red-600 dark:text-red-400">
-            404
-          </h1>
-          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-            Not Found
+        <Card className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-slate-900 dark:to-slate-800 border-red-200 dark:border-slate-700 p-12 text-center max-w-2xl mx-auto shadow-xl">
+          <div className="mb-6">
+            <h1 className="text-8xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400">
+              404
+            </h1>
+            <div className="h-1 w-24 mx-auto bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400 rounded-full"></div>
+          </div>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            Page Not Found
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-200 mb-6">
-            The page you are looking for was not found.
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            The page you are looking for doesn&apos;t exist or has been moved.
           </p>
           <Link
             to="/"
-            className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 dark:from-blue-500 dark:to-blue-600 dark:hover:from-blue-600 dark:hover:to-blue-700 text-white rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Go Home
           </Link>
