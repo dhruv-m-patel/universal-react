@@ -1,3 +1,5 @@
+import getInitialState from '../../lib/utils/getInitialState';
+
 export default async function index(router) {
   // Homepage - no data pre-fetching needed
   router.get('/', async (req, res, next) => {
@@ -14,13 +16,12 @@ export default async function index(router) {
       const posts = await req.repositories.posts.getPosts(page, limit);
 
       // Merge with existing initialState, maintaining other data
+      const initialState = getInitialState(req);
       req.initialState = {
-        ...req.initialState,
+        ...initialState,
         posts: {
-          ...req.initialState?.posts,
+          ...initialState?.posts,
           posts: {
-            isFetching: false,
-            error: undefined,
             data: posts,
             currentPage: page,
             totalPages: 10,
@@ -47,18 +48,15 @@ export default async function index(router) {
         ]);
 
         // Merge with existing initialState, maintaining other data
+        const initialState = getInitialState(req);
         req.initialState = {
-          ...req.initialState,
+          ...initialState,
           posts: {
-            ...req.initialState?.posts,
+            ...initialState?.posts,
             post: {
-              isFetching: false,
-              error: undefined,
               data: post,
             },
             comments: {
-              isFetching: false,
-              error: undefined,
               data: comments,
             },
           },
@@ -78,13 +76,12 @@ export default async function index(router) {
       const users = await req.repositories.users.getUsers();
 
       // Merge with existing initialState, maintaining other data
+      const initialState = getInitialState(req);
       req.initialState = {
-        ...req.initialState,
+        ...initialState,
         users: {
-          ...req.initialState?.users,
+          ...initialState?.users,
           users: {
-            isFetching: false,
-            error: undefined,
             data: users,
           },
         },
@@ -109,18 +106,15 @@ export default async function index(router) {
         ]);
 
         // Merge with existing initialState, maintaining other data
+        const initialState = getInitialState(req);
         req.initialState = {
-          ...req.initialState,
+          ...initialState,
           users: {
-            ...req.initialState?.users,
+            ...initialState?.users,
             user: {
-              isFetching: false,
-              error: undefined,
               data: user,
             },
             userPosts: {
-              isFetching: false,
-              error: undefined,
               data: userPosts,
             },
           },

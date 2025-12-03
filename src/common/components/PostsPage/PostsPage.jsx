@@ -10,7 +10,7 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
   const totalPages = 10; // JSONPlaceholder has 100 posts total
 
   useEffect(() => {
-    if (!isFetching && !error && posts.length === 0) {
+    if (!isFetching && !error && !posts?.length) {
       fetchPosts(currentPage, postsPerPage);
     }
   }, [isFetching, error, posts, currentPage, postsPerPage, fetchPosts]);
