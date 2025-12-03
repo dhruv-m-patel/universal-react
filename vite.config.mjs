@@ -53,7 +53,7 @@ export default defineConfig(({ mode, command, isSsrBuild }) => {
       ssrManifest: !ssrBuild, // Generate SSR manifest for client build
       rollupOptions: {
         input: ssrBuild
-          ? path.resolve(__dirname, 'src/entry-server.jsx')
+          ? path.resolve(__dirname, 'src/server/app.jsx')
           : path.resolve(__dirname, 'index.html'),
         output: {
           // Code splitting configuration

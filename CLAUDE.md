@@ -196,7 +196,7 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 - Catches all requests not handled by API routes
 - In development: Uses Vite's `ssrLoadModule` to load fresh server entry on each request
-- In production: Uses pre-built SSR bundle from `build/server/entry-server.mjs`
+- In production: Uses pre-built SSR bundle from `build/server/app.mjs`
 - Creates Redux store with preloaded state (from `req.initialState` or DEFAULT_STATE)
 - Renders React app to string using `renderToString` with StaticRouter
 - Injects preloaded state into `window.__PRELOADED_STATE__`
@@ -219,7 +219,7 @@ Uses `React.lazy()` for route-based code splitting:
 
 - Routes are defined in `src/common/router.jsx` using `React.lazy()` dynamic imports
 - Each route component is split into separate chunks by Vite automatically
-- Server uses non-lazy imports from `src/common/router-server.jsx` for SSR
+- Server uses non-lazy imports from `src/server/router.jsx` for SSR
 - Client uses lazy imports for optimal bundle splitting
 
 ### Routing
@@ -276,8 +276,8 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 **Vite** (`vite.config.js`):
 
-- Client entry: `src/entry-client.jsx`
-- SSR entry: `src/entry-server.jsx`
+- Client entry: `src/client/app.jsx`
+- SSR entry: `src/server/app.jsx`
 - Output: `build-static/` for client, `build/server/` for SSR
 - CSS Modules with hash-based class names (automatic)
 - Code splitting: Vite automatically splits vendor chunks and routes
@@ -319,8 +319,8 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 **Client route**:
 
 1. Create component in `src/common/components/`
-2. Add Route in `src/common/router.jsx` using `React.lazy()` dynamic import
-3. Also add to `src/common/router-server.jsx` with regular import for SSR
+2. Add Route in `src/client/router.jsx` using `React.lazy()` dynamic import
+3. Also add to `src/server/router.jsx` with regular import for SSR
 
 ### Adding database support
 

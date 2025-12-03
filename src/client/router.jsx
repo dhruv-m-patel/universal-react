@@ -2,13 +2,19 @@ import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 // Use React.lazy for code splitting (works with Vite)
-const HomePage = lazy(() => import('./components/HomePage'));
-const ReduxExamplePage = lazy(() => import('./components/ReduxExamplePage'));
-const PostsPage = lazy(() => import('./components/PostsPage'));
-const PostDetailPage = lazy(() => import('./components/PostDetailPage'));
-const UsersPage = lazy(() => import('./components/UsersPage'));
-const UserProfilePage = lazy(() => import('./components/UserProfilePage'));
-const NotFound = lazy(() => import('./components/NotFound'));
+const HomePage = lazy(() => import('../common/components/HomePage'));
+const ReduxExamplePage = lazy(
+  () => import('../common/components/ReduxExamplePage')
+);
+const PostsPage = lazy(() => import('../common/components/PostsPage'));
+const PostDetailPage = lazy(
+  () => import('../common/components/PostDetailPage')
+);
+const UsersPage = lazy(() => import('../common/components/UsersPage'));
+const UserProfilePage = lazy(
+  () => import('../common/components/UserProfilePage')
+);
+const NotFound = lazy(() => import('../common/components/NotFound'));
 
 // Loading fallback component
 function LoadingFallback() {

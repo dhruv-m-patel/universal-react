@@ -36,7 +36,7 @@ export default function () {
         template = await vite.transformIndexHtml(url, template);
 
         // Load the server entry via Vite's SSR loader
-        const entryServer = await vite.ssrLoadModule('/src/entry-server.jsx');
+        const entryServer = await vite.ssrLoadModule('/src/server/app.jsx');
         render = entryServer.render;
       } else if (isTest) {
         // Test: Skip SSR, just return static template
@@ -59,7 +59,7 @@ export default function () {
         // In production, the SSR entry is a .mjs file
         const entryServerPath = path.resolve(
           process.cwd(),
-          'build/server/entry-server.mjs'
+          'build/server/app.mjs'
         );
 
         // Use dynamic import for ESM
@@ -110,7 +110,7 @@ export default function () {
 
 // Helper to render preload links for production
 function renderPreloadLinks(manifest) {
-  const entryChunk = manifest['src/entry-client.jsx'];
+  const entryChunk = manifest['src/client/app.jsx'];
   if (!entryChunk) return '';
 
   const links = [];

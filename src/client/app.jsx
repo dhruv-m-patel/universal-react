@@ -2,9 +2,9 @@ import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import createStore from './client/store';
-import Router from './common/router';
-import './common/styles/tailwind.css';
+import createStore from './store';
+import Router from './router';
+import '../common/styles/tailwind.css';
 
 // Client-side entry point for Vite
 function render() {
@@ -34,7 +34,7 @@ if (import.meta.hot) {
   import.meta.hot.accept();
 
   // Accept updates to the router module and re-render
-  import.meta.hot.accept('./common/router', (newRouter) => {
+  import.meta.hot.accept('./router', (newRouter) => {
     if (newRouter) {
       render();
     }

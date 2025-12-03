@@ -2,10 +2,10 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom/server';
-import createStore from './client/store';
+import createStore from '../client/store';
 // Use server-specific router without lazy loading
 // React.lazy() doesn't work with renderToString() - requires streaming SSR (Wave 5)
-import Router from './common/router-server';
+import Router from './router';
 
 // Server-side entry point for Vite SSR
 export function render(url, initialState = {}) {
