@@ -103,11 +103,15 @@ export default async function myRoute(router) {
 
 ```
 src/
-├── client/              # Client-side entry point and Redux store
-├── common/              # Shared components and routing
-│   ├── components/      # React components (with tests and stories)
-│   └── router.jsx       # Client route definitions
+├── client/              # Client-side entry point and routing
+│   ├── app.jsx          # Client entry point with hydration
+│   ├── router.jsx       # Client route definitions with React.lazy
+│   └── ...              # Redux store and other client code
+├── common/              # Shared components
+│   └── components/      # React components (with tests and stories)
 ├── server/              # Server-side code
+│   ├── app.jsx          # SSR entry point
+│   ├── router.jsx       # Server route definitions (non-lazy imports)
 │   ├── middleware/      # Express middleware (including SSR)
 │   ├── routes/          # API and server routes
 │   └── ExpressServer.js # Express app setup
@@ -147,7 +151,8 @@ migrations/              # Database migration files
 ### New Client Route
 
 1. Create component in `src/common/components/`
-2. Add route in `src/common/router.jsx` using `React.lazy(() => import('./components/YourComponent'))`
+2. Add route in `src/client/router.jsx` using `React.lazy(() => import('../common/components/YourComponent'))`
+3. Add route in `src/server/router.jsx` with regular import for SSR
 
 ### New Middleware
 
