@@ -1,11 +1,6 @@
 import { RSAA } from 'redux-api-middleware';
 
 export const Actions = {
-  Test: {
-    FetchDataPending: 'FetchDataPending',
-    FetchDataCompleted: 'FetchDataCompleted',
-    FetchDataFailed: 'FetchDataFailed',
-  },
   Posts: {
     FetchPostsPending: 'FetchPostsPending',
     FetchPostsCompleted: 'FetchPostsCompleted',
@@ -44,20 +39,10 @@ export function generateRequest({ body, ...options }) {
   };
 }
 
-export const fetchTestData = () =>
-  generateRequest({
-    endpoint: '/api/test-data',
-    types: [
-      Actions.Test.FetchDataPending,
-      Actions.Test.FetchDataCompleted,
-      Actions.Test.FetchDataFailed,
-    ],
-  });
-
 // Posts actions
 export const fetchPosts = (page = 1, limit = 10) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/posts?_start=${(page - 1) * limit}&_limit=${limit}`,
+    endpoint: `/api/posts?page=${page}&limit=${limit}`,
     types: [
       Actions.Posts.FetchPostsPending,
       Actions.Posts.FetchPostsCompleted,
@@ -67,7 +52,7 @@ export const fetchPosts = (page = 1, limit = 10) =>
 
 export const fetchPost = (id) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/posts/${id}`,
+    endpoint: `/api/posts/${id}`,
     types: [
       Actions.Posts.FetchPostPending,
       Actions.Posts.FetchPostCompleted,
@@ -77,7 +62,7 @@ export const fetchPost = (id) =>
 
 export const fetchComments = (postId) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,
+    endpoint: `/api/posts/${postId}/comments`,
     types: [
       Actions.Posts.FetchCommentsPending,
       Actions.Posts.FetchCommentsCompleted,
@@ -88,7 +73,7 @@ export const fetchComments = (postId) =>
 // Users actions
 export const fetchUsers = () =>
   generateRequest({
-    endpoint: 'https://jsonplaceholder.typicode.com/users',
+    endpoint: '/api/users',
     types: [
       Actions.Users.FetchUsersPending,
       Actions.Users.FetchUsersCompleted,
@@ -98,7 +83,7 @@ export const fetchUsers = () =>
 
 export const fetchUser = (id) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/users/${id}`,
+    endpoint: `/api/users/${id}`,
     types: [
       Actions.Users.FetchUserPending,
       Actions.Users.FetchUserCompleted,
@@ -108,7 +93,7 @@ export const fetchUser = (id) =>
 
 export const fetchUserPosts = (userId) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/users/${userId}/posts`,
+    endpoint: `/api/users/${userId}/posts`,
     types: [
       Actions.Users.FetchUserPostsPending,
       Actions.Users.FetchUserPostsCompleted,
@@ -118,7 +103,7 @@ export const fetchUserPosts = (userId) =>
 
 export const fetchUserAlbums = (userId) =>
   generateRequest({
-    endpoint: `https://jsonplaceholder.typicode.com/users/${userId}/albums`,
+    endpoint: `/api/users/${userId}/albums`,
     types: [
       Actions.Users.FetchUserAlbumsPending,
       Actions.Users.FetchUserAlbumsCompleted,
