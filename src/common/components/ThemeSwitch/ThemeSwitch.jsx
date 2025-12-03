@@ -16,6 +16,7 @@ import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
  */
 export default function ThemeSwitch({ onThemeChange, className, label }) {
   const [isDarkMode, setIsDarkMode] = useState(undefined);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   // Toggle dark mode
   const toggleDarkMode = useCallback(() => {
@@ -38,9 +39,14 @@ export default function ThemeSwitch({ onThemeChange, className, label }) {
     }
   }, [isDarkMode, onThemeChange]);
 
-  // Initialize dark mode on mount
+  // Mark as hydrated after first render to prevent hydration mismatch
   useEffect(() => {
-    if (isDarkMode === undefined) {
+    setIsHydrated(true);
+  }, []);
+
+  // Initialize dark mode after hydration completes
+  useEffect(() => {
+    if (isHydrated && isDarkMode === undefined) {
       let shouldEnableDarkMode = false;
       const darkModeSetting = store.get('enableDarkMode');
 
@@ -70,7 +76,7 @@ export default function ThemeSwitch({ onThemeChange, className, label }) {
         onThemeChange(shouldEnableDarkMode);
       }
     }
-  }, [isDarkMode, onThemeChange]);
+  }, [isHydrated, isDarkMode, onThemeChange]);
 
   return (
     <div className={className}>

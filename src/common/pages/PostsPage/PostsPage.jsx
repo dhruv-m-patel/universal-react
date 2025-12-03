@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Page from '../../components/Page';
@@ -9,11 +9,21 @@ export default function PostsPage({ posts, isFetching, error, fetchPosts }) {
   const postsPerPage = 10;
   const totalPages = 10; // JSONPlaceholder has 100 posts total
 
+  // Track if we've loaded SSR data to prevent double fetch
+  const hasLoadedSSRData = useRef(posts && posts.length > 0);
+  const isInitialMount = useRef(true);
+
+  // Only fetch on initial mount if no SSR data exists
   useEffect(() => {
-    if (!isFetching && !error && !posts?.length) {
-      fetchPosts(currentPage, postsPerPage);
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+
+      // Only fetch if we didn't get SSR data
+      if (!hasLoadedSSRData.current && !isFetching && !error) {
+        fetchPosts(currentPage, postsPerPage);
+      }
     }
-  }, [isFetching, error, posts, currentPage, postsPerPage, fetchPosts]);
+  }, []); // Empty dependency array - only run once on mount
 
   const handlePageChange = (page) => {
     setCurrentPage(page);

@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect, useRef, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import Page from '../../components/Page';
@@ -96,22 +96,40 @@ export default function PostDetailPage({
 }) {
   const { id } = useParams();
 
-  useEffect(() => {
-    if (id && !isFetchingPost && !postError && !post) {
-      fetchPost(id);
-    }
-  }, [id, isFetchingPost, postError, post, fetchPost]);
+  // Track if we've loaded SSR data to prevent double fetch
+  const hasLoadedPostSSRData = useRef(!!post);
+  const hasLoadedCommentsSSRData = useRef(comments && comments.length > 0);
+  const isInitialMount = useRef(true);
 
+  // Fetch post only if no SSR data exists
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+
+      // Only fetch if we didn't get SSR data
+      if (
+        id &&
+        !hasLoadedPostSSRData.current &&
+        !isFetchingPost &&
+        !postError
+      ) {
+        fetchPost(id);
+      }
+    }
+  }, []); // Empty dependency array - only run once on mount
+
+  // Fetch comments only if post exists and no SSR comments data
   useEffect(() => {
     if (
       post &&
+      !hasLoadedCommentsSSRData.current &&
       !isFetchingComments &&
-      !commentsError &&
-      comments.length === 0
+      !commentsError
     ) {
       fetchComments(post.id);
+      hasLoadedCommentsSSRData.current = true; // Mark as loaded to prevent re-fetch
     }
-  }, [post, isFetchingComments, commentsError, comments, fetchComments]);
+  }, [post]); // Only depend on post existence
 
   return (
     <Page
