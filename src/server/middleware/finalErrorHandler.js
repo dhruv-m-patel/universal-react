@@ -81,8 +81,22 @@ export default function () {
       const errorPageUrl =
         statusCode === 404 || statusCode === 400 ? '/404' : '/500';
 
-      // Render the error page
-      const { html: appHtml, preloadedState } = render(errorPageUrl, {});
+      // Create initial state with error information to prevent client-side data fetching
+      const errorState = {
+        ssr: {
+          error: {
+            statusCode,
+            url: req.originalUrl,
+            hasError: true,
+          },
+        },
+      };
+
+      // Render the error page with error state
+      const { html: appHtml, preloadedState } = render(
+        errorPageUrl,
+        errorState
+      );
 
       // Inject preloaded state
       const stateScript = `<script id="stateData">window.__PRELOADED_STATE__ = ${JSON.stringify(
