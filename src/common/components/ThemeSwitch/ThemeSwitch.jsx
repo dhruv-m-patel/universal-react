@@ -75,7 +75,7 @@ export default function ThemeSwitch({ onThemeChange, className, label }) {
   return (
     <div className={className}>
       {label && (
-        <span className="mr-2 text-gray-700 dark:text-gray-300">{label}</span>
+        <span className="mr-2 !text-gray-700 dark:!text-white">{label}</span>
       )}
       <button
         type="button"
@@ -86,7 +86,7 @@ export default function ThemeSwitch({ onThemeChange, className, label }) {
         <FontAwesomeIcon
           icon={isDarkMode ? faToggleOn : faToggleOff}
           size="2x"
-          className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="!text-gray-700 dark:!text-gray-300 hover:!text-blue-600 dark:hover:!text-blue-400 transition-colors"
         />
       </button>
     </div>
