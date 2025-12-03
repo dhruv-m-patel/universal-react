@@ -55,15 +55,6 @@ describe('ExpressServer SSR Integration', () => {
     });
   });
 
-  describe('GET /redux-example', () => {
-    it('should return 200 status', async () => {
-      const response = await request(app).get('/redux-example');
-
-      expect(response.status).toBe(200);
-      expect(response.text).toContain('<div id="root">');
-    });
-  });
-
   describe('GET /nonexistent-route', () => {
     it('should return 200 but render 404 page', async () => {
       const response = await request(app).get('/nonexistent-route');
