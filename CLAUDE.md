@@ -56,7 +56,7 @@ yarn install
 
 ### Testing
 
-- `yarn test` - Run all tests with Vitest (46 tests passing)
+- `yarn test` - Run all tests with Vitest (65 tests passing)
 - `yarn test:ui` - Run Vitest with UI for interactive test debugging
 - `yarn test:coverage` - Run tests with coverage reports
 
@@ -386,14 +386,20 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 ## Testing
 
 - Vitest configured in `vitest.config.mjs`
-- Test files: `*.test.jsx` alongside components (use .jsx for JSX in tests)
 - Testing Library: `@testing-library/react` for component testing
 - Happy-dom: Lightweight DOM implementation (faster than jsdom)
 - Run single test: `yarn test path/to/test.test.jsx`
 - Use `composeStories` from `@storybook/react` to test stories
 - DOM assertions preferred over snapshots
 
-**Test Pattern**:
+**Test Organization**:
+
+- **Component tests**: `src/**/*.test.jsx` - Alongside components (use .jsx for JSX in tests)
+- **Integration tests**: `__tests__/**/*.test.js` - Server and API integration tests at project root
+
+The project follows a convention where component unit tests live alongside their components in `src/`, while server integration tests (Express routes, SSR, API endpoints) live in the root `__tests__/` directory for cleaner separation.
+
+**Component Test Pattern**:
 
 ```javascript
 import { render, screen } from '@testing-library/react';
@@ -405,6 +411,35 @@ const { Default } = composeStories(stories);
 test('renders component', () => {
   render(<Default />);
   expect(screen.getByText('Hello')).toBeInTheDocument();
+});
+```
+
+**Integration Test Pattern**:
+
+```javascript
+import request from 'supertest';
+import ExpressServer from '../src/server/ExpressServer.js';
+
+describe('API Routes', () => {
+  let server, app;
+
+  beforeAll(async () => {
+    server = new ExpressServer();
+    await server.configure();
+    await server.start();
+    app = server.app;
+  });
+
+  it('should return data', async () => {
+    const response = await request(app).get('/api/endpoint');
+    expect(response.status).toBe(200);
+  });
+
+  afterAll(async () => {
+    if (server?.server) {
+      await new Promise((resolve) => server.server.close(resolve));
+    }
+  });
 });
 ```
 

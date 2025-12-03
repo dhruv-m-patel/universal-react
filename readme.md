@@ -114,8 +114,15 @@ src/
 │   ├── router.jsx       # Server route definitions (non-lazy imports)
 │   ├── middleware/      # Express middleware (including SSR)
 │   ├── routes/          # API and server routes
+│   │   └── api/         # API endpoints (posts, users)
+│   ├── repositories/    # Data access layer with Repository pattern
 │   └── ExpressServer.js # Express app setup
 └── lib/                 # Shared utilities and database clients
+
+__tests__/               # Server integration tests
+├── ExpressServer.test.js
+└── routes/
+    └── api/             # API endpoint integration tests
 
 config/                  # Configuration files (base + environment overrides)
 migrations/              # Database migration files
