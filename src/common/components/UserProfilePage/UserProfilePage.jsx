@@ -21,8 +21,8 @@ export default function UserProfilePage() {
         setError(null);
 
         const [userResponse, postsResponse] = await Promise.all([
-          fetch(`https://jsonplaceholder.typicode.com/users/${id}`),
-          fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`),
+          fetch(`/api/users/${id}`),
+          fetch(`/api/users/${id}/posts`),
         ]);
 
         if (!userResponse.ok || !postsResponse.ok) {
