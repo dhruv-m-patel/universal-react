@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { vi, describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import ExpressServer from '../../ExpressServer.js';
 
 describe('Users API Routes', () => {
