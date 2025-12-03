@@ -1,5 +1,5 @@
 import request from 'supertest';
-import ExpressServer from './ExpressServer';
+import ExpressServer from '../src/server/ExpressServer';
 
 describe('ExpressServer SSR Integration', () => {
   let server;

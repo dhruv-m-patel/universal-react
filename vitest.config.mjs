@@ -32,7 +32,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.js'],
 
     // Test file patterns
-    include: ['src/**/*.test.{js,jsx}'],
+    include: ['src/**/*.test.{js,jsx}', '__tests__/**/*.test.{js,jsx}'],
     exclude: ['node_modules', 'build', 'build-static'],
 
     // Coverage configuration
@@ -44,6 +44,7 @@ export default defineConfig({
         'build/',
         'build-static/',
         'tests/',
+        '__tests__/',
         '**/*.test.js',
         '**/*.test.jsx',
         '**/index.js',

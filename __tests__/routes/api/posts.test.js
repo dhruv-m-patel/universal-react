@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import ExpressServer from '../../../ExpressServer.js';
+import ExpressServer from '../../../src/server/ExpressServer.js';
 
 describe('Posts API Routes', () => {
   let server;
