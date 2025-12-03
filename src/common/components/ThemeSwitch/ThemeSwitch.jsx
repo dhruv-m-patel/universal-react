@@ -87,6 +87,7 @@ export default function ThemeSwitch({ onThemeChange, className, label }) {
         onClick={toggleDarkMode}
         aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         className="cursor-pointer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+        style={{ verticalAlign: 'middle' }}
       >
         <FontAwesomeIcon
           icon={isDarkMode ? faToggleOn : faToggleOff}
