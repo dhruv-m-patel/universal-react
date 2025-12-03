@@ -31,7 +31,8 @@
     "test:coverage": "vitest run --coverage",
     "ci:test": "vitest run --coverage",
     "storybook": "storybook dev -p 3001",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -130,7 +131,7 @@
     "eslint-plugin-react": "^7.37.0",
     "globals": "^16.5.0",
     "happy-dom": "^20.0.11",
-    "husky": "^3.1.0",
+    "husky": "^9.1.7",
     "lint-staged": "^11.0.0",
     "msw": "^2.12.3",
     "msw-storybook-addon": "^2.0.6",

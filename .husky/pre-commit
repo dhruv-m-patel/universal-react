@@ -1,0 +1,12 @@
+# Load nvm to ensure correct Node version
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Use the correct Node version from .nvmrc
+nvm use
+
+# Run lint-staged for automatic formatting
+yarn lint-staged
+
+# Run lint to catch any linting errors
+yarn lint
