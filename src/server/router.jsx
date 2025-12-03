@@ -9,6 +9,7 @@ import PostDetailPage from '../common/components/PostDetailPage';
 import UsersPage from '../common/components/UsersPage';
 import UserProfilePage from '../common/components/UserProfilePage';
 import NotFound from '../common/components/NotFound';
+import ServerError from '../common/components/ServerError';
 
 export default function Router() {
   return (
@@ -18,6 +19,9 @@ export default function Router() {
       <Route path="/posts/:id" element={<PostDetailPage />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/users/:id" element={<UserProfilePage />} />
+      {/* Error pages for SSR error handling */}
+      <Route path="/404" element={<NotFound />} />
+      <Route path="/500" element={<ServerError />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

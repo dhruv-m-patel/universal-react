@@ -80,6 +80,14 @@
         "name": "sourcepath:./server/middleware/renderPageVite",
         "method": "default"
       }
+    },
+    "finalErrorHandler": {
+      "priority": 110,
+      "enabled": true,
+      "module": {
+        "name": "sourcepath:./server/middleware/finalErrorHandler",
+        "method": "default"
+      }
     }
   }
 }

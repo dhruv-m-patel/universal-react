@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom';
 import Page from '../Page';
 import { Container, Card } from '../../ui';
 
-export default function NotFound() {
+/**
+ * ServerError Component
+ * Displays a 500 error page when a server error occurs during SSR
+ */
+export default function ServerError() {
   return (
     <Page
-      title="404 Not Found - Universal React"
-      description="The requested resource was not found"
+      title="500 Server Error - Universal React"
+      description="An unexpected server error occurred"
     >
       <Container>
         <Card className="bg-red-50 dark:bg-red-950 border-red-300 dark:border-red-800 p-12 text-center max-w-2xl mx-auto">
           <h1 className="text-6xl font-bold mb-4 text-red-600 dark:text-red-400">
-            404
+            500
           </h1>
           <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
-            Not Found
+            Server Error
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-200 mb-6">
-            The page you are looking for was not found.
+            An unexpected error occurred while processing your request.
           </p>
           <Link
             to="/"

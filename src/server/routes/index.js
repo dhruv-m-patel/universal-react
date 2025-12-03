@@ -1,5 +1,14 @@
 import getInitialState from '../../lib/utils/getInitialState';
 
+/**
+ * Extract HTTP status code from error message
+ * BaseRepository throws errors like: "HTTP 404: Not Found - url"
+ */
+function extractStatusCode(error) {
+  const match = error.message?.match(/HTTP (\d{3}):/);
+  return match ? parseInt(match[1], 10) : 500;
+}
+
 export default async function index(router) {
   // Homepage - no data pre-fetching needed
   router.get('/', async (req, res, next) => {
@@ -28,11 +37,13 @@ export default async function index(router) {
           },
         },
       };
+      next();
     } catch (error) {
       console.error('Error pre-fetching posts:', error);
-      // Continue to SSR even if pre-fetch fails
+      // Pass error to error handler for posts list failures
+      error.statusCode = extractStatusCode(error);
+      next(error);
     }
-    next();
   });
 
   // Post detail page - pre-fetch post and comments data
@@ -40,33 +51,37 @@ export default async function index(router) {
     try {
       const postId = parseInt(req.params.id);
 
-      if (!isNaN(postId)) {
-        // Fetch post and comments data from repository in parallel
-        const [post, comments] = await Promise.all([
-          req.repositories.posts.getPostById(postId),
-          req.repositories.posts.getPostComments(postId),
-        ]);
-
-        // Merge with existing initialState, maintaining other data
-        const initialState = getInitialState(req);
-        req.initialState = {
-          ...initialState,
-          posts: {
-            ...initialState?.posts,
-            post: {
-              data: post,
-            },
-            comments: {
-              data: comments,
-            },
-          },
-        };
+      if (isNaN(postId)) {
+        const error = new Error('Invalid post ID');
+        error.statusCode = 400;
+        return next(error);
       }
+
+      // Fetch post and comments data from repository
+      const post = await req.repositories.posts.getPostById(postId);
+      const comments = await req.repositories.posts.getPostComments(postId);
+
+      // Merge with existing initialState, maintaining other data
+      const initialState = getInitialState(req);
+      req.initialState = {
+        ...initialState,
+        posts: {
+          ...initialState?.posts,
+          post: {
+            data: post,
+          },
+          comments: {
+            data: comments,
+          },
+        },
+      };
+      next();
     } catch (error) {
       console.error('Error pre-fetching post detail:', error);
-      // Continue to SSR even if pre-fetch fails
+      // Pass error to error handler for post detail failures
+      error.statusCode = extractStatusCode(error);
+      next(error);
     }
-    next();
   });
 
   // Users list page - pre-fetch users data
@@ -86,11 +101,13 @@ export default async function index(router) {
           },
         },
       };
+      next();
     } catch (error) {
       console.error('Error pre-fetching users:', error);
-      // Continue to SSR even if pre-fetch fails
+      // Pass error to error handler for users list failures
+      error.statusCode = extractStatusCode(error);
+      next(error);
     }
-    next();
   });
 
   // User profile page - pre-fetch user and user posts data
@@ -98,32 +115,36 @@ export default async function index(router) {
     try {
       const userId = parseInt(req.params.id);
 
-      if (!isNaN(userId)) {
-        // Fetch user and user posts data from repository in parallel
-        const [user, userPosts] = await Promise.all([
-          req.repositories.users.getUserById(userId),
-          req.repositories.users.getUserPosts(userId),
-        ]);
-
-        // Merge with existing initialState, maintaining other data
-        const initialState = getInitialState(req);
-        req.initialState = {
-          ...initialState,
-          users: {
-            ...initialState?.users,
-            user: {
-              data: user,
-            },
-            userPosts: {
-              data: userPosts,
-            },
-          },
-        };
+      if (isNaN(userId)) {
+        const error = new Error('Invalid user ID');
+        error.statusCode = 400;
+        return next(error);
       }
+
+      // Fetch user and user posts data from repository
+      const user = await req.repositories.users.getUserById(userId);
+      const userPosts = await req.repositories.users.getUserPosts(userId);
+
+      // Merge with existing initialState, maintaining other data
+      const initialState = getInitialState(req);
+      req.initialState = {
+        ...initialState,
+        users: {
+          ...initialState?.users,
+          user: {
+            data: user,
+          },
+          userPosts: {
+            data: userPosts,
+          },
+        },
+      };
+      next();
     } catch (error) {
       console.error('Error pre-fetching user profile:', error);
-      // Continue to SSR even if pre-fetch fails
+      // Pass error to error handler for user profile failures
+      error.statusCode = extractStatusCode(error);
+      next(error);
     }
-    next();
   });
 }

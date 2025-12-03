@@ -89,14 +89,14 @@ describe('SSR Routes with Data Pre-population', () => {
     it('should handle invalid post ID gracefully', async () => {
       const response = await request(app).get('/posts/invalid');
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(400);
       expect(response.type).toBe('text/html');
     });
 
     it('should handle non-existent post ID', async () => {
       const response = await request(app).get('/posts/99999');
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(404);
       expect(response.type).toBe('text/html');
     });
   });
@@ -136,14 +136,14 @@ describe('SSR Routes with Data Pre-population', () => {
     it('should handle invalid user ID gracefully', async () => {
       const response = await request(app).get('/users/invalid');
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(400);
       expect(response.type).toBe('text/html');
     });
 
     it('should handle non-existent user ID', async () => {
       const response = await request(app).get('/users/99999');
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBe(404);
       expect(response.type).toBe('text/html');
     });
   });
@@ -155,11 +155,11 @@ describe('SSR Routes with Data Pre-population', () => {
       expect(response.status).toBe(200);
     });
 
-    it('should render page even if data fetching fails', async () => {
-      // Testing with a potentially problematic ID
+    it('should render error page if data fetching fails', async () => {
+      // Testing with a potentially problematic ID (post 0 doesn't exist)
       const response = await request(app).get('/posts/0');
 
-      expect(response.status).toBe(200);
+      expect(response.status).toBeGreaterThanOrEqual(400);
       expect(response.type).toBe('text/html');
     });
   });
