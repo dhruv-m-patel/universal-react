@@ -7,6 +7,7 @@ import handlers from 'shortstop-handlers';
 import shortstopRegex from 'shortstop-regex';
 import getConfiguration from '../lib/utils/getConfiguration';
 import betterRequire from '../lib/utils/betterRequire';
+import { initializeRepositories } from './repositories/index.js';
 
 export default class ExpressServer {
   constructor() {
@@ -56,8 +57,13 @@ export default class ExpressServer {
     // disable X-Powered-By header
     this.app.disable('x-powered-by');
 
+    // Initialize repositories
+    const repositories = initializeRepositories(config);
+    this.app.locals.repositories = repositories;
+
     this.app.use((req, res, next) => {
       req.config = config;
+      req.repositories = repositories;
       next();
     });
 
