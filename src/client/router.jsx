@@ -3,9 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 
 // Use React.lazy for code splitting (works with Vite)
 const HomePage = lazy(() => import('../common/components/HomePage'));
-const ReduxExamplePage = lazy(
-  () => import('../common/components/ReduxExamplePage')
-);
 const PostsPage = lazy(() => import('../common/components/PostsPage'));
 const PostDetailPage = lazy(
   () => import('../common/components/PostDetailPage')
@@ -30,7 +27,6 @@ export default function Router() {
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/redux-example" element={<ReduxExamplePage />} />
         <Route path="/posts" element={<PostsPage />} />
         <Route path="/posts/:id" element={<PostDetailPage />} />
         <Route path="/users" element={<UsersPage />} />
