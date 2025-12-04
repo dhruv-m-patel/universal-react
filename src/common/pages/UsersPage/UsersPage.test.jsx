@@ -1,4 +1,6 @@
+import React from 'react';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { composeStories } from '@storybook/react';
 import { expect, test, describe } from 'vitest';
 import * as stories from './UsersPage.stories';
@@ -7,7 +9,11 @@ const { Default } = composeStories(stories);
 
 describe('UsersPage', () => {
   test('Default story renders without errors', () => {
-    const { container } = render(<Default />);
+    const { container } = render(
+      <MemoryRouter>
+        <Default />
+      </MemoryRouter>
+    );
 
     // Check that component renders
     expect(container.firstChild).not.toBeNull();
