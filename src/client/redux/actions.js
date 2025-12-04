@@ -81,9 +81,9 @@ export const fetchUsers = () =>
     ],
   });
 
-export const fetchUser = (id) =>
+export const fetchUser = (id, includePosts) =>
   generateRequest({
-    endpoint: `/api/users/${id}`,
+    endpoint: `/api/users/${id}?include_posts=${includePosts}`,
     types: [
       Actions.Users.FetchUserPending,
       Actions.Users.FetchUserCompleted,

@@ -28,6 +28,7 @@ export default async function usersRoutes(router) {
   router.get('/:id', async (req, res) => {
     try {
       const { id } = req.params;
+      const { include_posts: includePosts = false } = req.query;
 
       if (!id || isNaN(id)) {
         return res.status(400).json({
@@ -37,7 +38,6 @@ export default async function usersRoutes(router) {
       }
 
       const user = await req.repositories.users.getUserById(id);
-
       if (!user || !user.id) {
         return res.status(404).json({
           error: 'User not found',
@@ -45,7 +45,15 @@ export default async function usersRoutes(router) {
         });
       }
 
-      res.json(user);
+      let posts = null;
+      if (includePosts) {
+        posts = await req.repositories.users.getUserPosts(id);
+      }
+
+      res.json({
+        ...user,
+        posts,
+      });
     } catch (error) {
       console.error(`Error fetching user ${req.params.id}:`, error);
       res.status(500).json({
