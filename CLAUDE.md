@@ -56,7 +56,7 @@ yarn install
 
 ### Testing
 
-- `yarn test` - Run all tests with Vitest (65 tests passing)
+- `yarn test` - Run all tests with Vitest (107 tests passing)
 - `yarn test:ui` - Run Vitest with UI for interactive test debugging
 - `yarn test:coverage` - Run tests with coverage reports
 
@@ -80,6 +80,8 @@ yarn install
 
 - `yarn storybook` - Start Storybook v8 with Vite on port 3001
 - `yarn build-storybook` - Build static Storybook
+
+**Theme Addon**: Storybook includes `@storybook/addon-themes` for previewing components in light/dark modes. The theme switcher applies the `dark` class to the `<html>` element, matching the app's ThemeSwitch component behavior.
 
 ## Conventional Commits
 
@@ -361,10 +363,12 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 **Tailwind CSS**:
 
 - Utility-first CSS framework configured in `tailwind.config.js`
+- Dark mode enabled with `darkMode: 'class'` strategy
 - Use directly in className: `className="flex items-center gap-2 px-4 py-2"`
 - Dark mode support: `className="bg-white dark:bg-slate-800"`
 - Can combine with CSS Modules: `className={`${styles.custom} flex gap-2`}`
 - PostCSS processes Tailwind directives automatically
+- ThemeSwitch component toggles dark mode by adding/removing `dark` class on `<html>` element
 
 **Radix UI**:
 
@@ -381,8 +385,31 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 ### Git hooks
 
-- Husky runs lint-staged on pre-commit (formats with Prettier)
-- Runs tests before push
+- Husky v9 runs lint-staged on pre-commit (formats with Prettier)
+- Runs full test suite before push
+
+### Storybook global decorators
+
+Storybook's `.storybook/preview.jsx` configures global decorators that wrap all stories:
+
+1. **Theme decorator** (`withThemeByClassName`) - Applies light/dark theme to `<html>` element
+2. **Redux decorator** (`withRedux`) - Provides Redux store with default state
+3. **Router decorator** - Wraps stories in MemoryRouter (can be disabled per story)
+
+**Important**: When testing stories with `composeStories`, global decorators are NOT applied. Tests must provide explicit wrappers:
+
+```javascript
+import { MemoryRouter } from 'react-router-dom';
+import { composeStories } from '@storybook/react';
+
+test('test with router', () => {
+  render(
+    <MemoryRouter>
+      <Default />
+    </MemoryRouter>
+  );
+});
+```
 
 ## Testing
 

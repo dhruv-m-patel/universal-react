@@ -7,15 +7,19 @@ Production-ready React application boilerplate with server-side rendering (SSR),
 ## Features
 
 - **Server-Side Rendering (SSR)** - React 18 with full SSR support using Express
+- **SSR Data Pre-population** - Posts and users pages pre-fetch data during SSR for instant loads
+- **Comprehensive Error Handling** - Beautiful 404/500 error pages with proper status codes
 - **Lightning-Fast Dev Server** - Vite with instant HMR and sub-second cold starts
 - **Code Splitting** - Route-based automatic code splitting with React.lazy
 - **Modern UI Components** - Radix UI primitives with Tailwind CSS styling
+- **Dark Mode Support** - ThemeSwitch component with OS preference detection
 - **Database Ready** - Optional MySQL or PostgreSQL integration
+- **Repository Pattern** - Clean data access layer with BaseRepository
 - **Configuration Management** - Environment-based config with confit/meddleware
 - **Database Migrations** - Built-in migration support with db-migrate
-- **CSS Modules + Tailwind** - Scoped styles and utility-first CSS
-- **Testing & Quality** - Vitest, ESLint, Stylelint, Prettier with Husky git hooks
-- **Component Development** - Storybook v8 with Vite integration
+- **CSS Modules + Tailwind** - Scoped styles and utility-first CSS with class-based dark mode
+- **Testing & Quality** - 107 tests with Vitest, ESLint, Stylelint, Prettier, Husky v9 git hooks
+- **Component Development** - Storybook v8 with Vite integration and theme switcher addon
 - **Modern React Patterns** - Demo pages showcasing useTransition, useDeferredValue, Suspense
 
 ## Quick Start
@@ -56,14 +60,15 @@ yarn migration:apply       # Apply migrations to local DB
 
 The application includes several demo pages showcasing modern React 18+ features:
 
-- **HomePage** (`/`) - Landing page with navigation to demo pages
-- **Redux Example** (`/redux-example`) - Classic Redux pattern with API middleware
-- **Posts** (`/posts`) - Paginated list with Suspense boundaries
-- **Post Detail** (`/posts/:id`) - Individual post with comments
-- **Users** (`/users`) - User directory with `useTransition` for smooth search filtering
-- **User Profile** (`/users/:id`) - User profile with `useDeferredValue` for optimized search
+- **HomePage** (`/`) - Landing page with navigation to demo pages and dark mode toggle
+- **Posts** (`/posts`) - Paginated list with SSR data pre-population and Suspense boundaries
+- **Post Detail** (`/posts/:id`) - Individual post with comments, pre-fetched during SSR
+- **Users** (`/users`) - User directory with SSR data and `useTransition` for smooth search filtering
+- **User Profile** (`/users/:id`) - User profile with albums, posts, and `useDeferredValue` for optimized search
+- **NotFound** (`/404`) - Beautiful 404 error page with light/dark theme gradients
+- **ServerError** (`/500`) - Graceful 500 error handling when SSR fails
 
-These pages demonstrate modern patterns like concurrent rendering, `useTransition`, `useDeferredValue`, and Suspense boundaries working with SSR.
+These pages demonstrate modern patterns like concurrent rendering, `useTransition`, `useDeferredValue`, Suspense boundaries, and SSR data pre-population.
 
 ## Configuration
 
