@@ -4,7 +4,7 @@ import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
 import ThemeSwitch from '../ThemeSwitch';
 import { Container } from '../../ui';
-import * as styles from './Page.css';
+import * as styles from './Page.module.css';
 
 const cx = classnames.bind(styles);
 

@@ -40,6 +40,16 @@ export default defineConfig(({ mode, command, isSsrBuild }) => {
     css: {
       modules: {
         localsConvention: 'camelCase',
+        generateScopedName: (name, filename) => {
+          // Extract just the component name without the .module suffix
+          const componentName = path.basename(filename, '.module.css');
+          // Generate hash from filename + classname for uniqueness
+          const hash = Buffer.from(filename + name)
+            .toString('base64')
+            .replace(/[+/=]/g, '')
+            .substring(0, 5);
+          return `${componentName}__${name}__${hash}`;
+        },
       },
       postcss: './postcss.config.js',
     },
