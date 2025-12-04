@@ -1,5 +1,4 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import UsersPage from './UsersPage';
 
 // Mock users data
@@ -64,13 +63,6 @@ const mockUsers = [
 export default {
   title: 'Pages/UsersPage',
   component: UsersPage,
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Story />
-      </MemoryRouter>
-    ),
-  ],
 };
 
 export const Default = {

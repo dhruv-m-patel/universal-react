@@ -2,6 +2,7 @@ import React, { useState, useEffect, useDeferredValue, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Card, Spinner } from '../../ui';
+import Page from '../../components/Page';
 
 export default function UserProfilePage({
   fetchUser,
