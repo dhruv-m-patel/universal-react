@@ -1,5 +1,6 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import { withRedux } from './decorators/withRedux';
 import '../src/common/styles/tailwind.css';
 
@@ -14,6 +15,16 @@ const preview = {
     },
   },
   decorators: [
+    // Theme switcher - must come before other decorators
+    // Apply theme to <html> element to match ThemeSwitch behavior
+    withThemeByClassName({
+      themes: {
+        light: '',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      parentSelector: 'html',
+    }),
     // Redux with default state - can be overridden per story via parameters
     withRedux(),
     // React Router wrapper for Link components - can be disabled per story
