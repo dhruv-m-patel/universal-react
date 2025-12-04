@@ -95,41 +95,58 @@ export default function PostDetailPage({
   fetchComments,
 }) {
   const { id } = useParams();
+  const postId = parseInt(id, 10);
 
-  // Track if we've loaded SSR data to prevent double fetch
-  const hasLoadedPostSSRData = useRef(!!post);
-  const hasLoadedCommentsSSRData = useRef(comments && comments.length > 0);
-  const isInitialMount = useRef(true);
+  // Track the last fetched post ID to prevent unnecessary re-fetches
+  const lastFetchedPostId = useRef(null);
+  const lastFetchedCommentsPostId = useRef(null);
 
-  // Fetch post only if no SSR data exists
+  // Fetch post if needed (on mount or when ID changes)
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
+    // Check if we need to fetch:
+    // 1. Post doesn't exist, OR
+    // 2. Post ID doesn't match requested ID (navigated to different post), OR
+    // 3. We haven't fetched this ID yet (but still checking for SSR data)
+    const needsFetch =
+      !post ||
+      post.id !== postId ||
+      (lastFetchedPostId.current !== postId &&
+        lastFetchedPostId.current !== null);
 
-      // Only fetch if we didn't get SSR data
-      if (
-        id &&
-        !hasLoadedPostSSRData.current &&
-        !isFetchingPost &&
-        !postError
-      ) {
-        fetchPost(id);
-      }
+    // Only fetch if we haven't already fetched this ID and we're not currently fetching
+    if (
+      postId &&
+      !isFetchingPost &&
+      !postError &&
+      needsFetch &&
+      lastFetchedPostId.current !== postId
+    ) {
+      lastFetchedPostId.current = postId;
+      fetchPost(postId);
     }
-  }, []); // Empty dependency array - only run once on mount
+    // If we have SSR data for this post, mark it as fetched
+    else if (post && post.id === postId && lastFetchedPostId.current === null) {
+      lastFetchedPostId.current = postId;
+    }
+  }, [postId, post, isFetchingPost, postError, fetchPost]);
 
-  // Fetch comments only if post exists and no SSR comments data
+  // Fetch comments when post is loaded
   useEffect(() => {
+    // Only fetch comments if:
+    // 1. We have a post loaded
+    // 2. The post ID matches what we're viewing
+    // 3. We haven't fetched comments for this post yet
     if (
       post &&
-      !hasLoadedCommentsSSRData.current &&
+      post.id === postId &&
+      lastFetchedCommentsPostId.current !== postId &&
       !isFetchingComments &&
       !commentsError
     ) {
-      fetchComments(post.id);
-      hasLoadedCommentsSSRData.current = true; // Mark as loaded to prevent re-fetch
+      lastFetchedCommentsPostId.current = postId;
+      fetchComments(postId);
     }
-  }, [post]); // Only depend on post existence
+  }, [post, postId, isFetchingComments, commentsError, fetchComments]);
 
   return (
     <Page
