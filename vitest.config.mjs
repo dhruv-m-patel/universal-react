@@ -32,7 +32,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.js'],
 
     // Test file patterns
-    include: ['src/**/*.test.{js,jsx}'],
+    include: ['src/**/*.test.{js,jsx}', '__tests__/**/*.test.{js,jsx}'],
     exclude: ['node_modules', 'build', 'build-static'],
 
     // Coverage configuration
@@ -43,13 +43,13 @@ export default defineConfig({
         'node_modules/',
         'build/',
         'build-static/',
-        'tests/',
+        '__tests__/',
         '**/*.test.js',
         '**/*.test.jsx',
         '**/index.js',
         '**/*.stories.js',
-        'src/entry-client.jsx',
-        'src/entry-server.jsx',
+        'src/client/app.jsx',
+        'src/server/app.jsx',
         'src/client/index.js',
         'src/server/index.js',
         'babel.config.js',

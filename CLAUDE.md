@@ -56,7 +56,7 @@ yarn install
 
 ### Testing
 
-- `yarn test` - Run all tests with Vitest (46 tests passing)
+- `yarn test` - Run all tests with Vitest (107 tests passing)
 - `yarn test:ui` - Run Vitest with UI for interactive test debugging
 - `yarn test:coverage` - Run tests with coverage reports
 
@@ -80,6 +80,8 @@ yarn install
 
 - `yarn storybook` - Start Storybook v8 with Vite on port 3001
 - `yarn build-storybook` - Build static Storybook
+
+**Theme Addon**: Storybook includes `@storybook/addon-themes` for previewing components in light/dark modes. The theme switcher applies the `dark` class to the `<html>` element, matching the app's ThemeSwitch component behavior.
 
 ## Conventional Commits
 
@@ -196,7 +198,7 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 - Catches all requests not handled by API routes
 - In development: Uses Vite's `ssrLoadModule` to load fresh server entry on each request
-- In production: Uses pre-built SSR bundle from `build/server/entry-server.mjs`
+- In production: Uses pre-built SSR bundle from `build/server/app.mjs`
 - Creates Redux store with preloaded state (from `req.initialState` or DEFAULT_STATE)
 - Renders React app to string using `renderToString` with StaticRouter
 - Injects preloaded state into `window.__PRELOADED_STATE__`
@@ -217,9 +219,10 @@ Middleware is configured declaratively in `config/config.json` under the `meddle
 
 Uses `React.lazy()` for route-based code splitting:
 
-- Routes are defined in `src/common/router.jsx` using `React.lazy()` dynamic imports
+- Page components are located in `src/common/pages/`
+- Client routes in `src/client/router.jsx` use `React.lazy()` dynamic imports
+- Server routes in `src/server/router.jsx` use direct imports for SSR (no lazy loading)
 - Each route component is split into separate chunks by Vite automatically
-- Server uses non-lazy imports from `src/common/router-server.jsx` for SSR
 - Client uses lazy imports for optimal bundle splitting
 
 ### Routing
@@ -276,8 +279,8 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 **Vite** (`vite.config.js`):
 
-- Client entry: `src/entry-client.jsx`
-- SSR entry: `src/entry-server.jsx`
+- Client entry: `src/client/app.jsx`
+- SSR entry: `src/server/app.jsx`
 - Output: `build-static/` for client, `build/server/` for SSR
 - CSS Modules with hash-based class names (automatic)
 - Code splitting: Vite automatically splits vendor chunks and routes
@@ -318,9 +321,9 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 **Client route**:
 
-1. Create component in `src/common/components/`
-2. Add Route in `src/common/router.jsx` using `React.lazy()` dynamic import
-3. Also add to `src/common/router-server.jsx` with regular import for SSR
+1. Create page component in `src/common/pages/PageName/`
+2. Add Route in `src/client/router.jsx` using `React.lazy(() => import('../common/pages/PageName'))`
+3. Add Route in `src/server/router.jsx` with direct import for SSR
 
 ### Adding database support
 
@@ -360,10 +363,12 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 **Tailwind CSS**:
 
 - Utility-first CSS framework configured in `tailwind.config.js`
+- Dark mode enabled with `darkMode: 'class'` strategy
 - Use directly in className: `className="flex items-center gap-2 px-4 py-2"`
 - Dark mode support: `className="bg-white dark:bg-slate-800"`
 - Can combine with CSS Modules: `className={`${styles.custom} flex gap-2`}`
 - PostCSS processes Tailwind directives automatically
+- ThemeSwitch component toggles dark mode by adding/removing `dark` class on `<html>` element
 
 **Radix UI**:
 
@@ -380,20 +385,49 @@ Database is initialized in `src/server/index.js` after server starts, based on `
 
 ### Git hooks
 
-- Husky runs lint-staged on pre-commit (formats with Prettier)
-- Runs tests before push
+- Husky v9 runs lint-staged on pre-commit (formats with Prettier)
+- Runs full test suite before push
+
+### Storybook global decorators
+
+Storybook's `.storybook/preview.jsx` configures global decorators that wrap all stories:
+
+1. **Theme decorator** (`withThemeByClassName`) - Applies light/dark theme to `<html>` element
+2. **Redux decorator** (`withRedux`) - Provides Redux store with default state
+3. **Router decorator** - Wraps stories in MemoryRouter (can be disabled per story)
+
+**Important**: When testing stories with `composeStories`, global decorators are NOT applied. Tests must provide explicit wrappers:
+
+```javascript
+import { MemoryRouter } from 'react-router-dom';
+import { composeStories } from '@storybook/react';
+
+test('test with router', () => {
+  render(
+    <MemoryRouter>
+      <Default />
+    </MemoryRouter>
+  );
+});
+```
 
 ## Testing
 
 - Vitest configured in `vitest.config.mjs`
-- Test files: `*.test.jsx` alongside components (use .jsx for JSX in tests)
 - Testing Library: `@testing-library/react` for component testing
 - Happy-dom: Lightweight DOM implementation (faster than jsdom)
 - Run single test: `yarn test path/to/test.test.jsx`
 - Use `composeStories` from `@storybook/react` to test stories
 - DOM assertions preferred over snapshots
 
-**Test Pattern**:
+**Test Organization**:
+
+- **Component tests**: `src/**/*.test.jsx` - Alongside components (use .jsx for JSX in tests)
+- **Integration tests**: `__tests__/**/*.test.js` - Server and API integration tests at project root
+
+The project follows a convention where component unit tests live alongside their components in `src/`, while server integration tests (Express routes, SSR, API endpoints) live in the root `__tests__/` directory for cleaner separation.
+
+**Component Test Pattern**:
 
 ```javascript
 import { render, screen } from '@testing-library/react';
@@ -405,6 +439,35 @@ const { Default } = composeStories(stories);
 test('renders component', () => {
   render(<Default />);
   expect(screen.getByText('Hello')).toBeInTheDocument();
+});
+```
+
+**Integration Test Pattern**:
+
+```javascript
+import request from 'supertest';
+import ExpressServer from '../src/server/ExpressServer.js';
+
+describe('API Routes', () => {
+  let server, app;
+
+  beforeAll(async () => {
+    server = new ExpressServer();
+    await server.configure();
+    await server.start();
+    app = server.app;
+  });
+
+  it('should return data', async () => {
+    const response = await request(app).get('/api/endpoint');
+    expect(response.status).toBe(200);
+  });
+
+  afterAll(async () => {
+    if (server?.server) {
+      await new Promise((resolve) => server.server.close(resolve));
+    }
+  });
 });
 ```
 

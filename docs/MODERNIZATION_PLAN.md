@@ -241,8 +241,8 @@ Since we're committing at checkpoints:
    - [x] Configure environment variables
 
 3. **Create SSR Configuration**
-   - [x] Create separate SSR entry point (`src/entry-server.jsx`)
-   - [x] Create client entry point (`src/entry-client.jsx`)
+   - [x] Create separate SSR entry point (`src/server/app.jsx`)
+   - [x] Create client entry point (`src/client/app.jsx`)
    - [x] Configure Vite for SSR mode
    - [x] Set up SSR build command
    - [x] Configure manifest generation
@@ -260,7 +260,7 @@ Since we're committing at checkpoints:
    - [x] Update `src/common/router.jsx` imports
    - [x] Remove `@loadable/babel-plugin`
    - [x] Remove `@loadable/webpack-plugin`
-   - [x] Created `router-server.jsx` for SSR without lazy loading
+   - [x] Created `src/server/router.jsx` for SSR without lazy loading
 
 6. **Update Build Scripts**
    - [x] Add `build:client` script using Vite

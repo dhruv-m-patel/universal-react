@@ -77,13 +77,22 @@ export default function usersReducer(
       };
 
     case Actions.Users.FetchUserCompleted:
+      // eslint-disable-next-line no-case-declarations
+      const { posts, ...userData } = payload;
       return {
         ...state,
         user: {
           ...state.user,
           isFetching: false,
-          data: payload,
+          data: userData,
         },
+        ...(!!posts && {
+          userPosts: {
+            ...state.userPosts,
+            isFetching: false,
+            data: posts,
+          },
+        }),
       };
 
     case Actions.Users.FetchUserFailed:

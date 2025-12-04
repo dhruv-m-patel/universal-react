@@ -1,41 +1,20 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import store from 'store';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
-import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import classnames from 'classnames/bind';
 import DefaultHelmet from '../DefaultHelmet';
+import ThemeSwitch from '../ThemeSwitch';
 import { Container } from '../../ui';
-import * as styles from './Page.css';
+import * as styles from './Page.module.css';
 
 const cx = classnames.bind(styles);
 
 export default function Page({ title, description, children }) {
-  const [hasSwitchedToDarkMode, setHasSwitchedToDarkMode] = useState(undefined);
+  const [hasSwitchedToDarkMode, setHasSwitchedToDarkMode] = useState(false);
 
-  const switchToDarkMode = useCallback(() => {
-    setHasSwitchedToDarkMode(!hasSwitchedToDarkMode);
-    store.set('enableDarkMode', !hasSwitchedToDarkMode);
-  }, [hasSwitchedToDarkMode]);
-
-  // Set dark mode initially based on whether user prefers it using os preferences or previously turned it on
-  useEffect(() => {
-    if (hasSwitchedToDarkMode === undefined) {
-      let shouldSetDarkModeInitially = false;
-      const darkModeSetting = store.get('enableDarkMode');
-      if (darkModeSetting === undefined && typeof window !== 'undefined') {
-        shouldSetDarkModeInitially =
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches;
-      } else {
-        shouldSetDarkModeInitially = darkModeSetting;
-      }
-
-      setHasSwitchedToDarkMode(shouldSetDarkModeInitially);
-      store.set('enableDarkMode', shouldSetDarkModeInitially);
-    }
-  }, [hasSwitchedToDarkMode]);
+  // Update CSS Module classes when theme changes
+  const handleThemeChange = (isDarkMode) => {
+    setHasSwitchedToDarkMode(isDarkMode);
+  };
 
   return (
     <Container
@@ -47,13 +26,7 @@ export default function Page({ title, description, children }) {
     >
       <DefaultHelmet title={title} description={description} />
       <div className={cx('textRight')}>
-        Dark Mode
-        <FontAwesomeIcon
-          icon={hasSwitchedToDarkMode ? faToggleOn : faToggleOff}
-          size="2x"
-          onClick={switchToDarkMode}
-          className={cx('clickable', 'padTop10px')}
-        />
+        <ThemeSwitch onThemeChange={handleThemeChange} />
       </div>
       <div className={cx('app')}>
         <header className={cx('appHeader')}>
