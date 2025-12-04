@@ -43,7 +43,6 @@ export default defineConfig({
         'node_modules/',
         'build/',
         'build-static/',
-        'tests/',
         '__tests__/',
         '**/*.test.js',
         '**/*.test.jsx',

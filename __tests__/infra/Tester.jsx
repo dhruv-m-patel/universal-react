@@ -2,8 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import configureStore from '../src/client/store';
-import { DEFAULT_STATE } from '../src/client/redux/reducers';
+import configureStore from '../../src/client/store';
+import { DEFAULT_STATE } from '../../src/client/redux/reducers';
 
 // Tester helper class for snapshot testing with react-test-renderer
 // Compatible with Vitest (migrated from Jest/Enzyme)
